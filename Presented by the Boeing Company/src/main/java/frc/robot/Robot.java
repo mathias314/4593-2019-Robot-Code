@@ -10,6 +10,9 @@ package frc.robot;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.networktables.NetworkTable;
+import edu.wpi.first.networktables.NetworkTableInstance;
+import edu.wpi.first.networktables.NetworkTableEntry;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -23,6 +26,7 @@ public class Robot extends IterativeRobot {
   private static final String kCustomAuto = "My Auto";
   private String m_autoSelected;
   private final SendableChooser<String> m_chooser = new SendableChooser<>();
+  private NetworkTableEntry distanceEntry;
 
   /**
    * This function is run when the robot is first started up and should be
@@ -33,6 +37,9 @@ public class Robot extends IterativeRobot {
     m_chooser.setDefaultOption("Default Auto", kDefaultAuto);
     m_chooser.addOption("My Auto", kCustomAuto);
     SmartDashboard.putData("Auto choices", m_chooser);
+    NetworkTableInstance inst = NetworkTableInstance.getDefault();
+    NetworkTable table = inst.getTable("cameratable");
+    distanceEntry = table.getEntry("distance");
   }
 
   /**
@@ -87,6 +94,7 @@ public class Robot extends IterativeRobot {
    */
   @Override
   public void teleopPeriodic() {
+    double distance = distanceEntry.getDouble(0.0);
   }
 
   /**
