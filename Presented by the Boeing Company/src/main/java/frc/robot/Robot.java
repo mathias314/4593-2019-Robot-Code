@@ -13,6 +13,12 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.NetworkTableInstance;
 import edu.wpi.first.networktables.NetworkTableEntry;
+import java.lang.Math.*;
+//import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+import edu.wpi.first.wpilibj.XboxController;
+
+import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -28,6 +34,14 @@ public class Robot extends IterativeRobot {
   private final SendableChooser<String> m_chooser = new SendableChooser<>();
   private NetworkTableEntry distanceEntry;
 
+  private final TalonSRX m_FLM = new TalonSRX(2);
+  private final TalonSRX m_FRM = new TalonSRX(3);
+  private final TalonSRX m_RLM = new TalonSRX(1);
+  private final TalonSRX m_RRM = new TalonSRX(4);
+  private final XboxController m_stick1 = new XboxController(0);
+
+  private final Pixy m_Pixy = new Pixy();
+
   /**
    * This function is run when the robot is first started up and should be
    * used for any initialization code.
@@ -40,6 +54,8 @@ public class Robot extends IterativeRobot {
     NetworkTableInstance inst = NetworkTableInstance.getDefault();
     NetworkTable table = inst.getTable("cameratable");
     distanceEntry = table.getEntry("distance");
+    m_FRM.setInverted(true);
+    m_RRM.setInverted(true);
   }
 
   /**
@@ -94,7 +110,28 @@ public class Robot extends IterativeRobot {
    */
   @Override
   public void teleopPeriodic() {
+    try {
+      PixyPacket packet = m_Pixy.readPacket(3);
+      SmartDashboard.putNumber("distance", packet.X);
+    } catch (Exception e) {
+      SmartDashboard.putNumber("distance", -1);
+    }
+
+
+
     double distance = distanceEntry.getDouble(0.0);
+    SmartDashboard.putNumber("distance", distance);
+
+    double one = Math.abs(0.75 * m_stick1.getRawAxis(1)) > 0.15 ? 0.75 * m_stick1.getRawAxis(1) : 0; // left forwards allegedly
+    double five = Math.abs(0.75 * m_stick1.getRawAxis(5)) > 0.15 ? 0.75 * m_stick1.getRawAxis(5) : 0; // right forwards
+  
+    double zero = 0.0;
+    m_FLM.set(ControlMode.Current, one - zero);
+    m_RLM.set(ControlMode.Current, one + zero);
+
+    m_FRM.set(ControlMode.Current, five + zero);
+    m_RRM.set(ControlMode.Current, five - zero);
+
   }
 
   /**
