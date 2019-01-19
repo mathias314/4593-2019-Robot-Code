@@ -39,7 +39,7 @@ void setup()
 
 double theta(int x, int y)
 {
-  return atan(((double) y)/x - (50-y)*0.1);
+  return atan(((double) y)/x - (70-y)*0-.1);
 }
 
 void loop()
@@ -68,7 +68,7 @@ void loop()
         sprintf(buf, "  block %d: ", j);
         Serial.print(buf); 
         pixy.blocks[j].print();
-        Serial.print(theta(pixy.blocks[j].x, pixy.blocks[j].y)*180/3.14159);
+        Serial.print(theta(pixy.blocks[j].width, pixy.blocks[j].height)*180/3.14159);
       }
     }
   }  
