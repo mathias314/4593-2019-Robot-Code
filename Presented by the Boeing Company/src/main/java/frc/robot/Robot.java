@@ -34,13 +34,17 @@ public class Robot extends IterativeRobot {
   private final SendableChooser<String> m_chooser = new SendableChooser<>();
   private NetworkTableEntry distanceEntry;
 
-  private final TalonSRX m_FLM = new TalonSRX(2);
-  private final TalonSRX m_FRM = new TalonSRX(3);
-  private final TalonSRX m_RLM = new TalonSRX(1);
+
+  // these talon bois are havin a rough go at it
+  // take note that talons 3 and 4 are currently inverted to their actual positions on the bot
+  // troubleshooting with talons
+  private final TalonSRX m_FLM = new TalonSRX(3);
+  private final TalonSRX m_FRM = new TalonSRX(7);
+  private final TalonSRX m_RLM = new TalonSRX(2);
   private final TalonSRX m_RRM = new TalonSRX(4);
   private final XboxController m_stick1 = new XboxController(0);
 
-  private final Pixy m_Pixy = new Pixy();
+  private final Arduino m_Arduino = new Arduino();
 
   /**
    * This function is run when the robot is first started up and should be
@@ -56,6 +60,18 @@ public class Robot extends IterativeRobot {
     distanceEntry = table.getEntry("distance");
     m_FRM.setInverted(true);
     m_RRM.setInverted(true);
+    m_FLM.setInverted(false);
+    m_RLM.setInverted(false);
+
+    m_FRM.config_kF(0, 0.6);
+    m_RRM.config_kF(0, 0.6);
+    m_FLM.config_kF(0, 0.6);
+    m_RLM.config_kF(0, 0.6);
+
+    m_FRM.config_kP(0, 0.12);
+    m_RRM.config_kP(0, 0.12);
+    m_FLM.config_kP(0, 0.12);
+    m_RLM.config_kP(0, 0.12);
   }
 
   /**
@@ -110,24 +126,20 @@ public class Robot extends IterativeRobot {
    */
   @Override
   public void teleopPeriodic() {
-    try {
-      PixyPacket packet = m_Pixy.readPacket(3);
-      SmartDashboard.putNumber("distance", packet.X);
-    } catch (Exception e) {
-      SmartDashboard.putNumber("distance", -1);
-    }
 
+    // arduino code makes the robot quit as well for some unknown reason
 
+    ArduinoPacket packet = m_Arduino.readPacket();
+    System.out.println(packet.mDirection);
+    // double distance = distanceEntry.getDouble(0.0);
+    //SmartDashboard.putNumber("distance", distance);
 
-    double distance = distanceEntry.getDouble(0.0);
-    SmartDashboard.putNumber("distance", distance);
-
-    double one = Math.abs(0.75 * m_stick1.getRawAxis(1)) > 0.15 ? 0.75 * m_stick1.getRawAxis(1) : 0; // left forwards allegedly
-    double five = Math.abs(0.75 * m_stick1.getRawAxis(5)) > 0.15 ? 0.75 * m_stick1.getRawAxis(5) : 0; // right forwards
+    double five = Math.abs(0.75 * m_stick1.getRawAxis(1)) > 0.15 ? 0.75 * m_stick1.getRawAxis(1) : 0; // left forwards allegedly
+    double one = Math.abs(0.75 * m_stick1.getRawAxis(5)) > 0.15 ? 0.75 * m_stick1.getRawAxis(5) : 0; // right forwards
   
     double zero = 0.0;
-    m_FLM.set(ControlMode.Current, one - zero);
-    m_RLM.set(ControlMode.Current, one + zero);
+    m_FLM.set(ControlMode.Current, one + zero);
+    m_RLM.set(ControlMode.Current, one - zero);
 
     m_FRM.set(ControlMode.Current, five + zero);
     m_RRM.set(ControlMode.Current, five - zero);
