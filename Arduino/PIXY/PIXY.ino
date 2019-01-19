@@ -39,7 +39,12 @@ void setup()
 
 double theta(int x, int y)
 {
-  return atan(((double) y)/x - (70-y)*0-.1);
+  return atan(((double) y)/x - (70-y)*0-.1) * 180 / 3.14159;
+}
+
+double heuristic(int x, int y, double theta)
+{
+  return theta/90*((double) 2/320)*x*100 + (90.0-theta)/90*((double) 2/200)*y*100;
 }
 
 void loop()
@@ -61,14 +66,23 @@ void loop()
     // frame would bog down the Arduino
     if (i%50==0)
     {
-      sprintf(buf, "Detected %d:\n", blocks);
-      Serial.print(buf);
       for (j=0; j<blocks; j++)
       {
-        sprintf(buf, "  block %d: ", j);
-        Serial.print(buf); 
-        pixy.blocks[j].print();
-        Serial.print(theta(pixy.blocks[j].width, pixy.blocks[j].height)*180/3.14159);
+        double th = theta(pixy.blocks[j].width, pixy.blocks[j].height);
+        double h = heuristic(pixy.blocks[j].x, pixy.blocks[j].y, th);
+        if(h > 105){
+          Serial.print(1); //move left forwards
+        } else if (h < 95){
+          Serial.print(2); //move right forwards
+        } else {
+          if(th > 55){
+            Serial.print(3); // right forward, left back
+          } else if (th < 35){
+            Serial.print(4); // left forward, right back
+          } else {
+            Serial.print(5); // forwards
+          }
+        }
       }
     }
   }  
