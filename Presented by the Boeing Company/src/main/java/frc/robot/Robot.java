@@ -126,11 +126,6 @@ public class Robot extends IterativeRobot {
    */
   @Override
   public void teleopPeriodic() {
-
-    // arduino code makes the robot quit as well for some unknown reason
-
-    ArduinoPacket packet = m_Arduino.readPacket();
-    System.out.println(packet.mDirection);
     // double distance = distanceEntry.getDouble(0.0);
     //SmartDashboard.putNumber("distance", distance);
 
@@ -144,6 +139,48 @@ public class Robot extends IterativeRobot {
     m_FRM.set(ControlMode.Current, five + zero);
     m_RRM.set(ControlMode.Current, five - zero);
 
+    if(m_stick1.getAButton()){
+      moveyBoy();
+    }
+  }
+
+  public void moveyBoy(){
+    
+    // arduino code makes the robot quit as well for some unknown reason
+
+    ArduinoPacket packet = m_Arduino.readPacket();
+    System.out.println(packet.mDirection);
+
+    /**
+    switch(direction){
+      case LEFT:
+        m_FLM.set(ControlMode.Current, 0.4);
+        m_RLM.set(ControlMode.Current, 0.4);
+        break;
+      case RIGHT:
+        m_FRM.set(ControlMode.Current, 0.4);
+        m_RRM.set(ControlMode.Current, 0.4);
+        break;
+      case TURNL:
+        m_FLM.set(ControlMode.Current, -0.4);
+        m_RLM.set(ControlMode.Current, -0.4);
+        m_FRM.set(ControlMode.Current, 0.4);
+        m_RRM.set(ControlMode.Current, 0.4);
+        break;
+      case TURNR:
+        m_FLM.set(ControlMode.Current, 0.4);
+        m_RLM.set(ControlMode.Current, 0.4);
+        m_FRM.set(ControlMode.Current, -0.4);
+        m_RRM.set(ControlMode.Current, -0.4);
+        break;
+      case FORWARDS:
+        m_FLM.set(ControlMode.Current, 0.4);
+        m_RLM.set(ControlMode.Current, 0.4);
+        m_FRM.set(ControlMode.Current, 0.4);
+        m_RRM.set(ControlMode.Current, 0.4);
+        break;
+    }
+    */
   }
 
   /**

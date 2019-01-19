@@ -1,4 +1,4 @@
-package frc.robot;
+package frc.robot.subsystems;
 
 enum DIRECTION {
     LEFT, RIGHT, FORWARDS, TURNL, TURNR, NULL;
