@@ -1,9 +1,25 @@
+
 /*----------------------------------------------------------------------------*/
 /* Copyright (c) 2017-2018 FIRST. All Rights Reserved.                        */
 /* Open Source Software - may be modified and shared by FRC teams. The code   */
 /* must be accompanied by the FIRST BSD license file in the root directory of */
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
+
+/*
+here is a motivational story about a llama who is a professional golfer.
+hans was a sad llama as a child, and he always tended to dream big. One day, his dreams became reality.
+it was a beautiful summer day, the sun was high in the sky, and there were no clouds.
+he walked out of his abode that morning, and understood what had to be done.
+he reentered his home, picked up his driver, downed a bottle of jack, and made his way triumphantly out of his home.
+it was a short walk to Small Pines putt-putt course, and only took him about 15 minutes to gallop to.
+he enjoyed the exercise. After all, he didn't often get out of the house.
+as he stepped through the front door to purchase his ticket, he was given an odd stare by the man at the counter.
+"you cant use a driver on a putt putt course, you hecking idiot," he said.
+Hans stared the man down with his steely llama gaze and retorted: "..."
+Hans didn't say anything because he's a heccing llama, and llama's can't talk.
+*/
+
 
 package frc.robot;
 
