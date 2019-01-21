@@ -1,9 +1,5 @@
 package frc.robot.subsystems;
 
-enum DIRECTION {
-    LEFT, RIGHT, FORWARDS, TURNL, TURNR, NULL;
-}
-
 public class ArduinoPacket {
 public DIRECTION mDirection;
 

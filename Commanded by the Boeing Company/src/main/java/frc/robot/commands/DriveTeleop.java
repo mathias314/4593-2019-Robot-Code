@@ -39,10 +39,6 @@ public class DriveTeleop extends Command {
     Robot.m_subsystem.m_RLM.set(ControlMode.Current, one);
     Robot.m_subsystem.m_FRM.set(ControlMode.Current, five);
     Robot.m_subsystem.m_RRM.set(ControlMode.Current, five);
-
-    if(Robot.m_oi.xboxController.getStartButton()){
-      Scheduler.getInstance().add(new ArduinoMove());
-    }
   }
 
   // Make this return true when this Command no longer needs to run execute()

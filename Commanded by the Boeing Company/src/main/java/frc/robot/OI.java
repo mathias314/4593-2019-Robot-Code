@@ -9,6 +9,11 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.buttons.Button;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import frc.robot.RobotMap.Controls;
+import frc.robot.commands.ArduinoMove;
+import frc.robot.commands.DriveTeleop;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -43,5 +48,12 @@ public class OI {
   // until it is finished as determined by it's isFinished method.
   // button.whenReleased(new ExampleCommand());
 
-  public XboxController xboxController = new XboxController(0);
+  public XboxController xboxController = new XboxController(Controls.ControllerOne);
+  public JoystickButton Back = new JoystickButton(xboxController, Controls.BackButton);
+  public JoystickButton Start = new JoystickButton(xboxController, Controls.StartButton);
+  
+  public OI(){
+    Back.whenPressed(new DriveTeleop());
+    Start.whenPressed(new ArduinoMove());
+  }
 }

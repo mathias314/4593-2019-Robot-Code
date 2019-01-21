@@ -29,4 +29,11 @@ public class RobotMap {
     public static final int RLM = 2;
     public static final int RRM = 4;
   }
+
+  public static class Controls{
+    public static final int ControllerOne = 0;
+    public static final int ControllerTwo = 1;
+    public static final int StartButton = 8;
+    public static final int BackButton = 7;
+  }
 }

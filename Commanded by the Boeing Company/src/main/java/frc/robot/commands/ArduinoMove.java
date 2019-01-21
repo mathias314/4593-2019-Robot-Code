@@ -5,7 +5,7 @@ import com.ctre.phoenix.motorcontrol.ControlMode;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import frc.robot.Robot;
-import frc.robot.subsystems.ArduinoPacket;
+import frc.robot.subsystems.*;
 
 /**
  * An example command.  You can replace me with your own command.
@@ -33,8 +33,35 @@ public class ArduinoMove extends Command {
       Scheduler.getInstance().add(new DriveTeleop());
     }
 
-    if(Robot.m_oi.xboxController.getBackButton()){
-      Scheduler.getInstance().add(new DriveTeleop());
+    switch(packet.mDirection){
+      case LEFT:
+        Robot.m_subsystem.m_FLM.set(ControlMode.Current, 0.4);
+        Robot.m_subsystem.m_RLM.set(ControlMode.Current, 0.4);
+        break;
+      case RIGHT:
+        Robot.m_subsystem.m_FRM.set(ControlMode.Current, 0.4);
+        Robot.m_subsystem.m_RRM.set(ControlMode.Current, 0.4);
+        break;
+      case TURNL:
+        Robot.m_subsystem.m_FLM.set(ControlMode.Current, -0.4);
+        Robot.m_subsystem.m_RLM.set(ControlMode.Current, -0.4);
+        Robot.m_subsystem.m_FRM.set(ControlMode.Current, 0.4);
+        Robot.m_subsystem.m_RRM.set(ControlMode.Current, 0.4);
+        break;
+      case TURNR:
+        Robot.m_subsystem.m_FLM.set(ControlMode.Current, 0.4);
+        Robot.m_subsystem.m_RLM.set(ControlMode.Current, 0.4);
+        Robot.m_subsystem.m_FRM.set(ControlMode.Current, -0.4);
+        Robot.m_subsystem.m_RRM.set(ControlMode.Current, -0.4);
+        break;
+      case FORWARDS:
+        Robot.m_subsystem.m_FLM.set(ControlMode.Current, 0.4);
+        Robot.m_subsystem.m_RLM.set(ControlMode.Current, 0.4);
+        Robot.m_subsystem.m_FRM.set(ControlMode.Current, 0.4);
+        Robot.m_subsystem.m_RRM.set(ControlMode.Current, 0.4);
+        break;
+      default:
+        Scheduler.getInstance().add(new DriveTeleop());
     }
   }
 
