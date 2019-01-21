@@ -32,7 +32,8 @@ public class ArduinoMove extends Command {
     } catch (NullPointerException e) {
       Scheduler.getInstance().add(new DriveTeleop());
     }
-
+    
+    /** 
     switch(packet.mDirection){
       case LEFT:
         Robot.m_subsystem.m_FLM.set(ControlMode.Current, 0.4);
@@ -63,6 +64,7 @@ public class ArduinoMove extends Command {
       default:
         Scheduler.getInstance().add(new DriveTeleop());
     }
+    */
   }
 
   // Make this return true when this Command no longer needs to run execute()

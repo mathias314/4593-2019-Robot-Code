@@ -78,7 +78,7 @@ void loop()
           if(th > 55){
             Serial.print(3); // right forward, left back
           } else if (th < 35){
-            Serial.print(4); // left forward, right back
+            Serial.print(4); // left forward, right back;
           } else {
             Serial.print(5); // forwards
           }
