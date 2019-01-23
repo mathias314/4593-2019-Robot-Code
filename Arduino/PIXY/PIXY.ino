@@ -66,16 +66,16 @@ void loop()
     // frame would bog down the Arduino
     if (i%50==0)
     {
-      for (j=0; j<blocks; j++)
+      for (j=0; j<1; j++)
       {
         double th = theta(pixy.blocks[j].width, pixy.blocks[j].height);
         double h = heuristic(pixy.blocks[j].x, pixy.blocks[j].y, th);
-        if(h > 105){
+        if(h > 120){
           Serial.print(1); //move left forwards
-        } else if (h < 95){
+        } else if (h < 110){
           Serial.print(2); //move right forwards
         } else {
-          if(th > 55){
+          if(th > 45){
             Serial.print(3); // right forward, left back
           } else if (th < 35){
             Serial.print(4); // left forward, right back;
