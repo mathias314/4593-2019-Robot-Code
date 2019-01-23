@@ -33,8 +33,8 @@ public class DriveTeleop extends Command {
   protected void execute() {
     double rawFive = Robot.m_oi.xboxController.getRawAxis(1);
     double rawOne = Robot.m_oi.xboxController.getRawAxis(5);
-    double five = Math.abs(0.75 * rawOne) > 0.15 ? 0.75 * rawOne : 0; // left forwards allegedly
-    double one = Math.abs(0.75 * rawFive) > 0.15 ? 0.75 * rawFive : 0; // right forwards
+    double one = Math.abs(0.75 * rawOne) > 0.15 ? -0.75 * rawOne : 0; // left forwards allegedly
+    double five = Math.abs(0.75 * rawFive) > 0.15 ? -0.75 * rawFive : 0; // right forwards
     Robot.m_subsystem.m_FLM.set(ControlMode.Current, one);
     Robot.m_subsystem.m_RLM.set(ControlMode.Current, one);
     Robot.m_subsystem.m_FRM.set(ControlMode.Current, five);

@@ -58,10 +58,10 @@ public class Robot extends TimedRobot {
     // chooser.addOption("My Auto", new MyAutoCommand());
     SmartDashboard.putData("Auto mode", m_chooser);
 
-    Robot.m_subsystem.m_FRM.setInverted(true);
-    Robot.m_subsystem.m_RRM.setInverted(true);
-    Robot.m_subsystem.m_FLM.setInverted(false);
-    Robot.m_subsystem.m_RLM.setInverted(false);
+    Robot.m_subsystem.m_FRM.setInverted(false);
+    Robot.m_subsystem.m_RRM.setInverted(false);
+    Robot.m_subsystem.m_FLM.setInverted(true);
+    Robot.m_subsystem.m_RLM.setInverted(true);
 
     Robot.m_subsystem.m_FRM.config_kF(0, 0.6);
     Robot.m_subsystem.m_RRM.config_kF(0, 0.6);

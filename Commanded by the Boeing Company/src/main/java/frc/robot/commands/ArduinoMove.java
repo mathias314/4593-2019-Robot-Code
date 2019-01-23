@@ -29,42 +29,43 @@ public class ArduinoMove extends Command {
     ArduinoPacket packet = Robot.m_Arduino.readPacket();
     try {
       System.out.println(packet.mDirection);
-    } catch (NullPointerException e) {
-      Scheduler.getInstance().add(new DriveTeleop());
-    }
-    
-    /** 
     switch(packet.mDirection){
       case LEFT:
         Robot.m_subsystem.m_FLM.set(ControlMode.Current, 0.4);
         Robot.m_subsystem.m_RLM.set(ControlMode.Current, 0.4);
+        Robot.m_subsystem.m_FRM.set(ControlMode.Current, 0.0);
+        Robot.m_subsystem.m_RRM.set(ControlMode.Current, 0.0);
         break;
       case RIGHT:
         Robot.m_subsystem.m_FRM.set(ControlMode.Current, 0.4);
         Robot.m_subsystem.m_RRM.set(ControlMode.Current, 0.4);
+        Robot.m_subsystem.m_FLM.set(ControlMode.Current, 0.0);
+        Robot.m_subsystem.m_RLM.set(ControlMode.Current, 0.0);
         break;
       case TURNL:
-        Robot.m_subsystem.m_FLM.set(ControlMode.Current, -0.4);
-        Robot.m_subsystem.m_RLM.set(ControlMode.Current, -0.4);
+        Robot.m_subsystem.m_FLM.set(ControlMode.Current,-0.4);
+        Robot.m_subsystem.m_RLM.set(ControlMode.Current,-0.4);
         Robot.m_subsystem.m_FRM.set(ControlMode.Current, 0.4);
         Robot.m_subsystem.m_RRM.set(ControlMode.Current, 0.4);
         break;
       case TURNR:
         Robot.m_subsystem.m_FLM.set(ControlMode.Current, 0.4);
         Robot.m_subsystem.m_RLM.set(ControlMode.Current, 0.4);
-        Robot.m_subsystem.m_FRM.set(ControlMode.Current, -0.4);
-        Robot.m_subsystem.m_RRM.set(ControlMode.Current, -0.4);
+        Robot.m_subsystem.m_FRM.set(ControlMode.Current,-0.4);
+        Robot.m_subsystem.m_RRM.set(ControlMode.Current,-0.4);
         break;
       case FORWARDS:
-        Robot.m_subsystem.m_FLM.set(ControlMode.Current, 0.4);
-        Robot.m_subsystem.m_RLM.set(ControlMode.Current, 0.4);
-        Robot.m_subsystem.m_FRM.set(ControlMode.Current, 0.4);
-        Robot.m_subsystem.m_RRM.set(ControlMode.Current, 0.4);
+        Robot.m_subsystem.m_FLM.set(ControlMode.Current, 0.0);
+        Robot.m_subsystem.m_RLM.set(ControlMode.Current, 0.0);
+        Robot.m_subsystem.m_FRM.set(ControlMode.Current, 0.0);
+        Robot.m_subsystem.m_RRM.set(ControlMode.Current, 0.0);
         break;
       default:
         Scheduler.getInstance().add(new DriveTeleop());
     }
-    */
+  } catch (NullPointerException e) {
+      Scheduler.getInstance().add(new DriveTeleop());
+    }
   }
 
   // Make this return true when this Command no longer needs to run execute()
