@@ -31,34 +31,35 @@ public class ArduinoMove extends Command {
       System.out.println(packet.mDirection);
     switch(packet.mDirection){
       case LEFT:
-        Robot.m_subsystem.m_FLM.set(ControlMode.Current, 0.4);
-        Robot.m_subsystem.m_RLM.set(ControlMode.Current, 0.4);
+        Robot.m_subsystem.m_FLM.set(ControlMode.Current, 0.5);
+        Robot.m_subsystem.m_RLM.set(ControlMode.Current, 0.5);
         Robot.m_subsystem.m_FRM.set(ControlMode.Current, 0.0);
         Robot.m_subsystem.m_RRM.set(ControlMode.Current, 0.0);
         break;
       case RIGHT:
-        Robot.m_subsystem.m_FRM.set(ControlMode.Current, 0.4);
-        Robot.m_subsystem.m_RRM.set(ControlMode.Current, 0.4);
+        Robot.m_subsystem.m_FRM.set(ControlMode.Current, 0.5);
+        Robot.m_subsystem.m_RRM.set(ControlMode.Current, 0.5);
         Robot.m_subsystem.m_FLM.set(ControlMode.Current, 0.0);
         Robot.m_subsystem.m_RLM.set(ControlMode.Current, 0.0);
         break;
       case TURNL:
-        Robot.m_subsystem.m_FLM.set(ControlMode.Current,-0.4);
-        Robot.m_subsystem.m_RLM.set(ControlMode.Current,-0.4);
-        Robot.m_subsystem.m_FRM.set(ControlMode.Current, 0.4);
-        Robot.m_subsystem.m_RRM.set(ControlMode.Current, 0.4);
+        Robot.m_subsystem.m_FLM.set(ControlMode.Current,-0.5);
+        Robot.m_subsystem.m_RLM.set(ControlMode.Current,-0.5);
+        Robot.m_subsystem.m_FRM.set(ControlMode.Current, 0.5);
+        Robot.m_subsystem.m_RRM.set(ControlMode.Current, 0.5);
         break;
       case TURNR:
-        Robot.m_subsystem.m_FLM.set(ControlMode.Current, 0.4);
-        Robot.m_subsystem.m_RLM.set(ControlMode.Current, 0.4);
-        Robot.m_subsystem.m_FRM.set(ControlMode.Current,-0.4);
-        Robot.m_subsystem.m_RRM.set(ControlMode.Current,-0.4);
+        Robot.m_subsystem.m_FLM.set(ControlMode.Current, 0.5);
+        Robot.m_subsystem.m_RLM.set(ControlMode.Current, 0.5);
+        Robot.m_subsystem.m_FRM.set(ControlMode.Current,-0.5);
+        Robot.m_subsystem.m_RRM.set(ControlMode.Current,-0.5);
         break;
       case FORWARDS:
         Robot.m_subsystem.m_FLM.set(ControlMode.Current, 0.0);
         Robot.m_subsystem.m_RLM.set(ControlMode.Current, 0.0);
         Robot.m_subsystem.m_FRM.set(ControlMode.Current, 0.0);
         Robot.m_subsystem.m_RRM.set(ControlMode.Current, 0.0);
+        Scheduler.getInstance().add(new DriveTeleop());
         break;
       default:
         Scheduler.getInstance().add(new DriveTeleop());
