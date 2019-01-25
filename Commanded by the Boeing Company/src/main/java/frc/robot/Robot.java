@@ -31,6 +31,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.commands.DriveTeleop;
 import frc.robot.subsystems.Arduino;
 import frc.robot.subsystems.DriveTrain;
+import frc.robot.subsystems.SPARKDrive;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -41,6 +42,7 @@ import frc.robot.subsystems.DriveTrain;
  */
 public class Robot extends TimedRobot {
   public static DriveTrain m_subsystem = new DriveTrain();
+  public static SPARKDrive m_sparks = new SPARKDrive();
   public static Arduino m_Arduino = new Arduino();
   public static OI m_oi;
 
