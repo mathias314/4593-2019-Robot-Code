@@ -36,6 +36,14 @@ public class SPARKDrive extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
 
+  public void init(){
+    m_FLM.setInverted(true);
+    m_RLM.setInverted(true);
+    m_FRM.setInverted(true);
+    m_RRM.setInverted(true);
+  }
+
+
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.

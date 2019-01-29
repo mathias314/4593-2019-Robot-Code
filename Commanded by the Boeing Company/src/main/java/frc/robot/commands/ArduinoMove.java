@@ -13,7 +13,7 @@ import frc.robot.subsystems.*;
 public class ArduinoMove extends Command {
   public ArduinoMove() {
     // Use requires() here to declare subsystem dependencies
-    requires(Robot.m_Arduino);
+    // requires(Robot.m_Arduino);
     requires(Robot.m_subsystem);
   }
 
@@ -26,46 +26,32 @@ public class ArduinoMove extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    ArduinoPacket packet = Robot.m_Arduino.readPacket();
+    ArduinoPacket packet = new ArduinoPacket(1);
+    // ArduinoPacket packet = Robot.m_Arduino.readPacket();
     try {
       System.out.println(packet.mDirection);
     switch(packet.mDirection){
       case LEFT:
-        Robot.m_subsystem.m_FLM.set(ControlMode.Current, 0.5);
-        Robot.m_subsystem.m_RLM.set(ControlMode.Current, 0.5);
-        Robot.m_subsystem.m_FRM.set(ControlMode.Current, 0.0);
-        Robot.m_subsystem.m_RRM.set(ControlMode.Current, 0.0);
+        Robot.m_subsystem.m_DRIVE.tankDrive(0.5, 0.0);
         break;
       case RIGHT:
-        Robot.m_subsystem.m_FRM.set(ControlMode.Current, 0.5);
-        Robot.m_subsystem.m_RRM.set(ControlMode.Current, 0.5);
-        Robot.m_subsystem.m_FLM.set(ControlMode.Current, 0.0);
-        Robot.m_subsystem.m_RLM.set(ControlMode.Current, 0.0);
+        Robot.m_subsystem.m_DRIVE.tankDrive(0.0, 0.5);
         break;
       case TURNL:
-        Robot.m_subsystem.m_FLM.set(ControlMode.Current,-0.5);
-        Robot.m_subsystem.m_RLM.set(ControlMode.Current,-0.5);
-        Robot.m_subsystem.m_FRM.set(ControlMode.Current, 0.5);
-        Robot.m_subsystem.m_RRM.set(ControlMode.Current, 0.5);
+        Robot.m_subsystem.m_DRIVE.tankDrive(-0.5, 0.5);
         break;
       case TURNR:
-        Robot.m_subsystem.m_FLM.set(ControlMode.Current, 0.5);
-        Robot.m_subsystem.m_RLM.set(ControlMode.Current, 0.5);
-        Robot.m_subsystem.m_FRM.set(ControlMode.Current,-0.5);
-        Robot.m_subsystem.m_RRM.set(ControlMode.Current,-0.5);
+        Robot.m_subsystem.m_DRIVE.tankDrive(0.5, -0.5);
         break;
       case FORWARDS:
-        Robot.m_subsystem.m_FLM.set(ControlMode.Current, 0.0);
-        Robot.m_subsystem.m_RLM.set(ControlMode.Current, 0.0);
-        Robot.m_subsystem.m_FRM.set(ControlMode.Current, 0.0);
-        Robot.m_subsystem.m_RRM.set(ControlMode.Current, 0.0);
-        Scheduler.getInstance().add(new DriveTeleop());
+        Robot.m_subsystem.m_DRIVE.tankDrive(0.0, 0.0);
+        Scheduler.getInstance().add(new SPARKDriveTeleop());
         break;
       default:
-        Scheduler.getInstance().add(new DriveTeleop());
+        Scheduler.getInstance().add(new SPARKDriveTeleop());
     }
   } catch (NullPointerException e) {
-      Scheduler.getInstance().add(new DriveTeleop());
+      Scheduler.getInstance().add(new SPARKDriveTeleop());
     }
   }
 

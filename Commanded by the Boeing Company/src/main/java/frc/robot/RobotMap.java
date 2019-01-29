@@ -24,10 +24,10 @@ public class RobotMap {
   // public static int rangefinderPort = 1;
   // public static int rangefinderModule = 1;
   public static class Drive {
-    public static final int FLM = 2;
-    public static final int FRM = 4;
-    public static final int RLM = 3;
-    public static final int RRM = 7;
+    public static final int FLM = 3;
+    public static final int FRM = 1;
+    public static final int RLM = 4;
+    public static final int RRM = 2;
   }
 
   public static class Controls{

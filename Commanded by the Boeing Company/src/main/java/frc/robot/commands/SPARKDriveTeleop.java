@@ -33,11 +33,13 @@ public class SPARKDriveTeleop extends Command {
   protected void execute() {
     double rawFive = Robot.m_oi.xboxController.getRawAxis(1);
     double rawOne = Robot.m_oi.xboxController.getRawAxis(5);
-    double one = Math.abs(0.75 * rawOne) > 0.15 ? -0.75 * rawOne : 0; // left forwards allegedly
-    double five = Math.abs(0.75 * rawFive) > 0.15 ? -0.75 * rawFive : 0; // right forwards
-    Robot.m_sparks.m_DRIVE.tankDrive(one, five);
+    double one = Math.abs(1 * rawOne) > 0.15 ? -1 * rawOne : 0; // left forwards allegedly
+    double five = Math.abs(1 * rawFive) > 0.15 ? -1 * rawFive : 0; // right forwards
+    System.out.println(one);
+    System.out.println(five);
+    Robot.m_subsystem.m_DRIVE.tankDrive(one, five);
   }
-
+  
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {

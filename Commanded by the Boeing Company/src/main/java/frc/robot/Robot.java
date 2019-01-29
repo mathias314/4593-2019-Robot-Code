@@ -28,9 +28,8 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import frc.robot.commands.DriveTeleop;
+import frc.robot.commands.SPARKDriveTeleop;
 import frc.robot.subsystems.Arduino;
-import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.SPARKDrive;
 
 /**
@@ -41,9 +40,8 @@ import frc.robot.subsystems.SPARKDrive;
  * project.
  */
 public class Robot extends TimedRobot {
-  public static DriveTrain m_subsystem = new DriveTrain();
-  public static SPARKDrive m_sparks = new SPARKDrive();
-  public static Arduino m_Arduino = new Arduino();
+  public static SPARKDrive m_subsystem = new SPARKDrive();
+  // public static Arduino m_Arduino = new Arduino();
   public static OI m_oi;
 
   Command m_autonomousCommand;
@@ -56,24 +54,10 @@ public class Robot extends TimedRobot {
   @Override
   public void robotInit() {
     m_oi = new OI();
-    m_chooser.setDefaultOption("Default Auto", new DriveTeleop());
+    m_chooser.setDefaultOption("Default Auto", new SPARKDriveTeleop());
     // chooser.addOption("My Auto", new MyAutoCommand());
     SmartDashboard.putData("Auto mode", m_chooser);
-
-    Robot.m_subsystem.m_FRM.setInverted(false);
-    Robot.m_subsystem.m_RRM.setInverted(false);
-    Robot.m_subsystem.m_FLM.setInverted(true);
-    Robot.m_subsystem.m_RLM.setInverted(true);
-
-    Robot.m_subsystem.m_FRM.config_kF(0, 0.6);
-    Robot.m_subsystem.m_RRM.config_kF(0, 0.6);
-    Robot.m_subsystem.m_FLM.config_kF(0, 0.6);
-    Robot.m_subsystem.m_RLM.config_kF(0, 0.6);
-
-    Robot.m_subsystem.m_FRM.config_kP(0, 0.12);
-    Robot.m_subsystem.m_RRM.config_kP(0, 0.12);
-    Robot.m_subsystem.m_FLM.config_kP(0, 0.12);
-    Robot.m_subsystem.m_RLM.config_kP(0, 0.12);
+    m_subsystem.init();
   }
 
   /**

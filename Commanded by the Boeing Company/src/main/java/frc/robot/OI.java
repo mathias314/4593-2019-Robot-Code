@@ -13,7 +13,7 @@ import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import frc.robot.RobotMap.Controls;
 import frc.robot.commands.ArduinoMove;
-import frc.robot.commands.DriveTeleop;
+import frc.robot.commands.SPARKDriveTeleop;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -53,7 +53,7 @@ public class OI {
   public JoystickButton Start = new JoystickButton(xboxController, Controls.StartButton);
   
   public OI(){
-    Back.whenPressed(new DriveTeleop());
+    Back.whenPressed(new SPARKDriveTeleop());
     Start.whenPressed(new ArduinoMove());
   }
 }
