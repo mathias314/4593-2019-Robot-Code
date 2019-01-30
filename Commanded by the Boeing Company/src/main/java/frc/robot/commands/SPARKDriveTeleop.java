@@ -7,8 +7,6 @@
 
 package frc.robot.commands;
 
-import com.ctre.phoenix.motorcontrol.ControlMode;
-
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import frc.robot.Robot;
@@ -33,11 +31,12 @@ public class SPARKDriveTeleop extends Command {
   protected void execute() {
     double rawFive = Robot.m_oi.xboxController.getRawAxis(1);
     double rawOne = Robot.m_oi.xboxController.getRawAxis(5);
-    double one = Math.abs(1 * rawOne) > 0.15 ? -1 * rawOne : 0; // left forwards allegedly
-    double five = Math.abs(1 * rawFive) > 0.15 ? -1 * rawFive : 0; // right forwards
-    System.out.println(one);
-    System.out.println(five);
-    Robot.m_subsystem.m_DRIVE.tankDrive(one, five);
+    double one = Math.abs(1 * rawOne) > 0.15 ? -0.6 * Math.pow(rawOne, 1) : 0; // left forwards allegedly
+    double five = Math.abs(1 * rawFive) > 0.15 ? -0.6 * Math.pow(rawFive, 1) : 0; // right forwards
+    System.out.println(Robot.m_subsystem.m_encoder_left.getPosition());
+    System.out.println(Robot.m_subsystem.m_encoder_right.getPosition());
+    Robot.m_subsystem.m_FLM.pidWrite(one);
+    Robot.m_subsystem.m_FRM.pidWrite(five);
   }
   
   // Make this return true when this Command no longer needs to run execute()

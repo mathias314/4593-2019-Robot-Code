@@ -1,5 +1,12 @@
 package frc.robot.commands;
 
-public class YeeHaw{
+import edu.wpi.first.wpilibj.command.Command;
+
+public class YeeHaw extends Command{
+
+    @Override
+    protected boolean isFinished() {
+        return false;
+    }
     
 }
