@@ -26,7 +26,6 @@ public class SPARKDrive extends Subsystem {
   private CANSparkMax m_RLM = new CANSparkMax(RobotMap.Drive.RLM, MotorType.kBrushless);
   private CANSparkMax m_RRM = new CANSparkMax(RobotMap.Drive.RRM, MotorType.kBrushless);
 
-  public DifferentialDrive m_DRIVE = new DifferentialDrive(m_FLM, m_FRM);
   public CANPIDController m_econtroller_left = new CANPIDController(m_FLM);
   public CANEncoder m_encoder_left = new CANEncoder(m_FLM);
   public CANPIDController m_econtroller_right = new CANPIDController(m_FRM);
@@ -43,18 +42,19 @@ public class SPARKDrive extends Subsystem {
     m_RLM.follow(m_FLM, false);
     m_RRM.follow(m_FRM, false);
 
-    m_FLM.setRampRate(0.2);
-    m_FRM.setRampRate(0.2);
-
     m_econtroller_left.setOutputRange(-1.0, 1.0);
-    m_econtroller_left.setFF(0.4);
-    m_econtroller_left.setD(0.1);
+    m_econtroller_left.setFF(0.000173);
+    m_econtroller_left.setP(0.0008);
+    m_econtroller_left.setI(0);
+    m_econtroller_left.setD(0.0008);
+    m_econtroller_left.setIZone(0);
     m_econtroller_right.setOutputRange(-1.0, 1.0);
-    m_econtroller_right.setFF(0.0);
-    m_econtroller_right.setD(0.1);
-    m_econtroller_left.setReference(0, ControlType.kVelocity);
-    m_econtroller_right.setReference(0, ControlType.kVelocity);
-  }
+    m_econtroller_right.setFF(0.00018);
+    m_econtroller_right.setP(0.0008);
+    m_econtroller_right.setI(0);
+    m_econtroller_right.setD(0.0015);
+    m_econtroller_right.setIZone(0);
+ }
 
 
   @Override

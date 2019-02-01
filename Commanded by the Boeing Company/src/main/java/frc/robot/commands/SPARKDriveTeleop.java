@@ -7,8 +7,11 @@
 
 package frc.robot.commands;
 
+import com.revrobotics.ControlType;
+
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
 
 /**
@@ -31,12 +34,20 @@ public class SPARKDriveTeleop extends Command {
   protected void execute() {
     double rawFive = Robot.m_oi.xboxController.getRawAxis(1);
     double rawOne = Robot.m_oi.xboxController.getRawAxis(5);
-    double one = Math.abs(1 * rawOne) > 0.15 ? -0.6 * Math.pow(rawOne, 1) : 0; // left forwards allegedly
-    double five = Math.abs(1 * rawFive) > 0.15 ? -0.6 * Math.pow(rawFive, 1) : 0; // right forwards
-    System.out.println(Robot.m_subsystem.m_encoder_left.getPosition());
-    System.out.println(Robot.m_subsystem.m_encoder_right.getPosition());
-    Robot.m_subsystem.m_FLM.pidWrite(one);
-    Robot.m_subsystem.m_FRM.pidWrite(five);
+    double one = Math.abs(1 * rawOne) > 0.15 ? -3000 * Math.pow(rawOne, 1) : 0; // left forwards allegedly
+    double five = Math.abs(1 * rawFive) > 0.15 ? -3000 * Math.pow(rawFive, 1) : 0; // right forwards
+    SmartDashboard.putNumber("left", Robot.m_subsystem.m_encoder_left.getVelocity());
+    SmartDashboard.putNumber("right", Robot.m_subsystem.m_encoder_right.getVelocity());
+    if(one != 0){
+    Robot.m_subsystem.m_econtroller_left.setReference(one,ControlType.kVelocity);
+    } else {
+      Robot.m_subsystem.m_FLM.set(0);
+    }
+    if(five != 0){
+    Robot.m_subsystem.m_econtroller_right.setReference(five, ControlType.kVelocity);
+    } else {
+      Robot.m_subsystem.m_FRM.set(0);
+    }
   }
   
   // Make this return true when this Command no longer needs to run execute()
