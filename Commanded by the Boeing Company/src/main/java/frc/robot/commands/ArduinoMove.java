@@ -1,5 +1,7 @@
 package frc.robot.commands;
 
+import com.revrobotics.ControlType;
+
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import frc.robot.Robot;
@@ -12,7 +14,7 @@ public class ArduinoMove extends Command {
   public ArduinoMove() {
     // Use requires() here to declare subsystem dependencies
     // requires(Robot.m_Arduino);
-    requires(Robot.m_subsystem);
+    // requires(Robot.m_subsystem);
   }
 
   // Called just before this Command runs the first time
@@ -30,19 +32,24 @@ public class ArduinoMove extends Command {
       System.out.println(packet.mDirection);
     switch(packet.mDirection){
       case LEFT:
-        // Robot.m_subsystem.m_DRIVE.tankDrive(0.5, 0.0);
+        // Robot.m_subsystem.m_econtroller_left.setReference(0.3*5700, ControlType.kVelocity);
+        // Robot.m_subsystem.m_econtroller_right.setReference(0, ControlType.kVelocity);
         break;
       case RIGHT:
-        // Robot.m_subsystem.m_DRIVE.tankDrive(0.0, 0.5);
+        // Robot.m_subsystem.m_econtroller_left.setReference(0, ControlType.kVelocity);
+        // Robot.m_subsystem.m_econtroller_right.setReference(0.3*5700, ControlType.kVelocity);
         break;
       case TURNL:
-        // Robot.m_subsystem.m_DRIVE.tankDrive(-0.5, 0.5);
+        // Robot.m_subsystem.m_econtroller_left.setReference(-0.3*5700, ControlType.kVelocity);
+        // Robot.m_subsystem.m_econtroller_right.setReference(0.3*5700, ControlType.kVelocity);
         break;
       case TURNR:
-         // Robot.m_subsystem.m_DRIVE.tankDrive(0.5, -0.5);
+        // Robot.m_subsystem.m_econtroller_left.setReference(0.3*5700, ControlType.kVelocity);
+        // Robot.m_subsystem.m_econtroller_right.setReference(-0.3*5700, ControlType.kVelocity);
         break;
       case FORWARDS:
-        // Robot.m_subsystem.m_DRIVE.tankDrive(0.0, 0.0);
+        // Robot.m_subsystem.m_econtroller_left.setReference(0, ControlType.kVelocity);
+        // Robot.m_subsystem.m_econtroller_right.setReference(0, ControlType.kVelocity);
         Scheduler.getInstance().add(new SPARKDriveTeleop());
         break;
       default:

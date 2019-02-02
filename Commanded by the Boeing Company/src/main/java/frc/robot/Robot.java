@@ -41,7 +41,7 @@ import frc.robot.subsystems.SPARKDrive;
  * project.
  */
 public class Robot extends TimedRobot {
-  public static SPARKDrive m_subsystem = new SPARKDrive();
+  // public static SPARKDrive m_subsystem = new SPARKDrive();
   public static ForkKnife m_fk = new ForkKnife();
   // public static Arduino m_Arduino = new Arduino();
   public static OI m_oi;
@@ -59,7 +59,7 @@ public class Robot extends TimedRobot {
     m_chooser.setDefaultOption("Default Auto", new SPARKDriveTeleop());
     // chooser.addOption("My Auto", new MyAutoCommand());
     SmartDashboard.putData("Auto mode", m_chooser);
-    m_subsystem.init();
+    // m_subsystem.init();
   }
 
   /**

@@ -20,7 +20,7 @@ import frc.robot.Robot;
 public class SPARKDriveTeleop extends Command {
   public SPARKDriveTeleop() {
     // Use requires() here to declare subsystem dependencies
-    requires(Robot.m_subsystem);
+    // requires(Robot.m_subsystem);
   }
 
   // Called just before this Command runs the first time
@@ -36,17 +36,17 @@ public class SPARKDriveTeleop extends Command {
     double rawOne = Robot.m_oi.xboxController.getRawAxis(5);
     double one = Math.abs(1 * rawOne) > 0.15 ? -3000 * Math.pow(rawOne, 1) : 0; // left forwards allegedly
     double five = Math.abs(1 * rawFive) > 0.15 ? -3000 * Math.pow(rawFive, 1) : 0; // right forwards
-    SmartDashboard.putNumber("left", Robot.m_subsystem.m_encoder_left.getVelocity());
-    SmartDashboard.putNumber("right", Robot.m_subsystem.m_encoder_right.getVelocity());
+    // SmartDashboard.putNumber("left", Robot.m_subsystem.m_encoder_left.getVelocity());
+    // SmartDashboard.putNumber("right", Robot.m_subsystem.m_encoder_right.getVelocity());
     if(one != 0){
-    Robot.m_subsystem.m_econtroller_left.setReference(one,ControlType.kVelocity);
+      // Robot.m_subsystem.m_econtroller_left.setReference(one,ControlType.kVelocity);
     } else {
-      Robot.m_subsystem.m_FLM.set(0);
+      // Robot.m_subsystem.m_FLM.set(0);
     }
     if(five != 0){
-    Robot.m_subsystem.m_econtroller_right.setReference(five, ControlType.kVelocity);
+      // Robot.m_subsystem.m_econtroller_right.setReference(five, ControlType.kVelocity);
     } else {
-      Robot.m_subsystem.m_FRM.set(0);
+      // Robot.m_subsystem.m_FRM.set(0);
     }
   }
   
