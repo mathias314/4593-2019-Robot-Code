@@ -49,8 +49,10 @@ public class OI {
   // button.whenReleased(new ExampleCommand());
 
   public XboxController xboxController = new XboxController(Controls.ControllerOne);
+  public XboxController auxController = new XboxController(Controls.auxController);
   public JoystickButton Back = new JoystickButton(xboxController, Controls.BackButton);
   public JoystickButton Start = new JoystickButton(xboxController, Controls.StartButton);
+  p
   
   public OI(){
     Back.whenPressed(new SPARKDriveTeleop());

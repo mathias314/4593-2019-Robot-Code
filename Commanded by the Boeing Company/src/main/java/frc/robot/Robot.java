@@ -30,6 +30,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.commands.SPARKDriveTeleop;
 import frc.robot.subsystems.Arduino;
+import frc.robot.subsystems.ForkKnife;
 import frc.robot.subsystems.SPARKDrive;
 
 /**
@@ -41,6 +42,7 @@ import frc.robot.subsystems.SPARKDrive;
  */
 public class Robot extends TimedRobot {
   public static SPARKDrive m_subsystem = new SPARKDrive();
+  public static ForkKnife m_fk = new ForkKnife();
   // public static Arduino m_Arduino = new Arduino();
   public static OI m_oi;
 
