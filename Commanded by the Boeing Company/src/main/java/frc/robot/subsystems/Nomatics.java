@@ -8,29 +8,23 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid;
-import edu.wpi.first.wpilibj.Spark;
-import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
-import frc.robot.commands.FkCommand;
 import frc.robot.commands.PistonLift;
 
 /**
  * Add your docs here.
  */
-public class ForkKnife extends Subsystem {
+public class Nomatics extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
 
-  private Spark sparkOne = new Spark(RobotMap.ForkKnife.sparkOne);
-  private Spark sparkTwo = new Spark(RobotMap.ForkKnife.sparkTwo);
-
-  public SpeedControllerGroup fk = new SpeedControllerGroup(sparkOne, sparkTwo);
+  
+  public DoubleSolenoid ds = new DoubleSolenoid(RobotMap.ForkKnife.solenoidSideA, RobotMap.ForkKnife.solenoidSideB);
 
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
-    // setDefaultCommand(new MySpecialCommand());
-    setDefaultCommand(new FkCommand());
+    setDefaultCommand(new PistonLift());
   }
 }

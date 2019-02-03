@@ -14,6 +14,7 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import frc.robot.RobotMap.Controls;
 import frc.robot.commands.ArduinoMove;
 import frc.robot.commands.SPARKDriveTeleop;
+import frc.robot.commands.PistonLift;
 
 /**
  * This class is the glue that binds the controls on the physical operator
