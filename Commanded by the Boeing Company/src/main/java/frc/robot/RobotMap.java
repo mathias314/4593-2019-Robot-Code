@@ -33,6 +33,7 @@ public class RobotMap {
   public static class ForkKnife {
     public static final int sparkOne = 0;
     public static final int sparkTwo = 1;
+    public static final int sparkBALL = 2;
     public static final int solenoidSideA = 1;
     public static final int solenoidSideB = 0;
   }
