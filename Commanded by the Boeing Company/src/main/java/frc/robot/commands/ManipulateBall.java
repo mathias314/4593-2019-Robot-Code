@@ -25,10 +25,10 @@ public class ManipulateBall extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    if (Robot.m_oi.auxController.getXButtonPressed()) {
-      Robot.m_ballMan.m_bMotor.set(0.3);
-    } else if (Robot.m_oi.auxController.getYButtonPressed()) {
-      Robot.m_ballMan.m_bMotor.set(-0.3);
+    if (Robot.m_oi.auxController.getXButton()) {
+      Robot.m_ballMan.m_bMotor.set(1);
+    } else if (Robot.m_oi.auxController.getYButton()) {
+      Robot.m_ballMan.m_bMotor.set(-1);
     } else {
       Robot.m_ballMan.m_bMotor.set(0);
     }
