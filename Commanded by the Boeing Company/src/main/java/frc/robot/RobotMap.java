@@ -24,10 +24,10 @@ public class RobotMap {
   // public static int rangefinderPort = 1;
   // public static int rangefinderModule = 1;
   public static class Drive {
-    public static final int FLM = 3;
+    public static final int FLM = 3; // 3 should be
     public static final int FRM = 1;
     public static final int RLM = 4;
-    public static final int RRM = 2;
+    public static final int RRM = 2; // 2 should be
   }
 
   public static class ForkKnife {
@@ -36,6 +36,7 @@ public class RobotMap {
     public static final int sparkBALL = 2;
     public static final int solenoidSideA = 1;
     public static final int solenoidSideB = 0;
+    public static final int ballLimitSwitch = 0;
   }
 
   public static class Controls{
