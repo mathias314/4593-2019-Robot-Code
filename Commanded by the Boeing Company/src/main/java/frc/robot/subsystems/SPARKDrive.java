@@ -37,8 +37,8 @@ public class SPARKDrive extends Subsystem {
   // here. Call these from Commands.
 
   public void init(){
-    m_FLM.setInverted(true);
-    m_FRM.setInverted(false);
+    m_FLM.setInverted(false);
+    m_FRM.setInverted(true);
     m_RLM.follow(m_FLM, false);
     m_RRM.follow(m_FRM, false);
 

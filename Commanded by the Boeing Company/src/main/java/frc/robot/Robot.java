@@ -28,10 +28,12 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import frc.robot.commands.MakeGrip;
 import frc.robot.commands.SPARKDriveTeleop;
 import frc.robot.subsystems.Arduino;
 import frc.robot.subsystems.BallManipulator;
 import frc.robot.subsystems.ForkKnife;
+import frc.robot.subsystems.Gripper;
 import frc.robot.subsystems.Nomatics;
 import frc.robot.subsystems.SPARKDrive;
 
@@ -48,6 +50,7 @@ public class Robot extends TimedRobot {
   public static Nomatics m_nomat = new Nomatics();
   public static BallManipulator m_ballMan = new BallManipulator();
   // public static Arduino m_Arduino = new Arduino();
+  public static Gripper m_gripper = new Gripper();
   public static OI m_oi;
 
   Command m_autonomousCommand;
@@ -63,7 +66,7 @@ public class Robot extends TimedRobot {
     m_chooser.setDefaultOption("Default Auto", new SPARKDriveTeleop());
     // chooser.addOption("My Auto", new MyAutoCommand());
     SmartDashboard.putData("Auto mode", m_chooser);
-    // m_subsystem.initDefaultCommand();
+    m_subsystem.init();
   }
 
   /**

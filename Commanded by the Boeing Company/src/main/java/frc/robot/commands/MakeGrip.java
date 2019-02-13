@@ -7,58 +7,52 @@
 
 package frc.robot.commands;
 
-import java.util.concurrent.TimeUnit;
-
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.command.Command;
+import frc.robot.OI;
 import frc.robot.Robot;
+import frc.robot.subsystems.ForkKnife;
+import frc.robot.subsystems.Gripper;
 
-public class ManipulateBall extends Command {
-  public ManipulateBall() {
+public class MakeGrip extends Command {
+  public MakeGrip() {
+    requires(Robot.m_gripper);
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.m_ballMan);
+    
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
+    Robot.m_gripper.GripperSolenoid.set(DoubleSolenoid.Value.kOff);
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
 
-    System.out.println(Robot.m_ballMan.m_ballLimitSwitch.get()); 
-    
+    // make control scheme however it may be
+    // controls as of now are on the driver controller
+    // this is subject to change, and most likely should be changed eventually
+    // we need to figure out complete control mapping at some point, so we don't have to deal with crappy control schemes like this... :(
 
-    Boolean limitPressed = Robot.m_ballMan.m_ballLimitSwitch.get();
-    if (Robot.m_oi.auxController.getXButton()){
-      Robot.m_ballMan.m_bMotor.set(-.6);
-    } else if (limitPressed == false) {
-      Robot.m_ballMan.m_bMotor.set(0);
-      try {
-        Thread.sleep(300); 
-      } catch (Exception e) {
-        //TODO: handle exception
-      }
-    } else if (Robot.m_oi.auxController.getYButton()) {
-        Robot.m_ballMan.m_bMotor.set(-.6);
-      }
-      else {
-        Robot.m_ballMan.m_bMotor.set(0);
-      }
-    
+    /*
+    if (Robot.m_oi.xboxController.getAButtonPressed()) {
+      Robot.m_gripper.GripperSolenoid.set(DoubleSolenoid.Value.kForward);
+    } else if (Robot.m_oi.xboxController.getBButtonPressed()) {
+      Robot.m_gripper.GripperSolenoid.set(DoubleSolenoid.Value.kReverse);
     }
-  
-  
+    */
     
+  }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return Robot.m_ballMan.m_ballLimitSwitch.get();
+    return false;
   }
-  
 
   // Called once after isFinished returns true
   @Override
