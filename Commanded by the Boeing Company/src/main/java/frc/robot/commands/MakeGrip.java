@@ -38,13 +38,13 @@ public class MakeGrip extends Command {
     // this is subject to change, and most likely should be changed eventually
     // we need to figure out complete control mapping at some point, so we don't have to deal with crappy control schemes like this... :(
 
-    /*
+    
     if (Robot.m_oi.xboxController.getAButtonPressed()) {
       Robot.m_gripper.GripperSolenoid.set(DoubleSolenoid.Value.kForward);
     } else if (Robot.m_oi.xboxController.getBButtonPressed()) {
       Robot.m_gripper.GripperSolenoid.set(DoubleSolenoid.Value.kReverse);
     }
-    */
+    
     
   }
 

@@ -39,8 +39,10 @@ public class SPARKDrive extends Subsystem {
   public void init(){
     m_FLM.setInverted(false);
     m_FRM.setInverted(true);
+    m_FLM.setRampRate(0.5);
     m_RLM.follow(m_FLM, false);
     m_RRM.follow(m_FRM, false);
+    m_RLM.setRampRate(0.5);
 
     m_econtroller_left.setOutputRange(-1.0, 1.0);
     m_econtroller_left.setFF(0.000173);

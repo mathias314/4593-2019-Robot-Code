@@ -34,8 +34,10 @@ public class ManipulateBall extends Command {
     Boolean limitPressed = Robot.m_ballMan.m_ballLimitSwitch.get();
     if (Robot.m_oi.auxController.getXButton()){
       Robot.m_ballMan.m_bMotor.set(-.6);
+      Robot.m_ballMan.m_lit.set(false);
     } else if (limitPressed == false) {
       Robot.m_ballMan.m_bMotor.set(0);
+      Robot.m_ballMan.m_lit.set(true);
       try {
         Thread.sleep(300); 
       } catch (Exception e) {
@@ -43,6 +45,7 @@ public class ManipulateBall extends Command {
       }
     } else if (Robot.m_oi.auxController.getYButton()) {
         Robot.m_ballMan.m_bMotor.set(-.6);
+        Robot.m_ballMan.m_lit.set(false);
       }
       else {
         Robot.m_ballMan.m_bMotor.set(0);

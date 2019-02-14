@@ -8,6 +8,7 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.DigitalInput;
+import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
@@ -23,6 +24,8 @@ public class BallManipulator extends Subsystem {
   public Spark m_bMotor = new Spark(RobotMap.ForkKnife.sparkBALL);
 
   public DigitalInput m_ballLimitSwitch = new DigitalInput(RobotMap.ForkKnife.ballLimitSwitch);
+
+  public Solenoid m_lit = new Solenoid(RobotMap.ForkKnife.LED_PCM);
 
   @Override
   public void initDefaultCommand() {
