@@ -39,7 +39,7 @@ public class ManipulateBall extends Command {
       Robot.m_ballMan.m_bMotor.set(0);
       Robot.m_ballMan.m_lit.set(true);
       try {
-        Thread.sleep(300); 
+        Thread.sleep(369); 
       } catch (Exception e) {
         //TODO: handle exception
       }
