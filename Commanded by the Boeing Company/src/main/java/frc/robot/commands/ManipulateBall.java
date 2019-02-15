@@ -9,6 +9,7 @@ package frc.robot.commands;
 
 import java.util.concurrent.TimeUnit;
 
+import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
@@ -50,6 +51,14 @@ public class ManipulateBall extends Command {
       else {
         Robot.m_ballMan.m_bMotor.set(0);
       }
+
+      
+    if (Robot.m_oi.auxController.getBumper(Hand.kRight)){
+      System.out.println("trying");
+      Robot.m_ballMan.m_arms.setAngle(1);
+    } else if (Robot.m_oi.auxController.getBumper(Hand.kLeft)){
+      Robot.m_ballMan.m_arms.setAngle(200);
+    }
     
     }
   

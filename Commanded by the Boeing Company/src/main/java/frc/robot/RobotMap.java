@@ -38,6 +38,7 @@ public class RobotMap {
     public static final int solenoidSideB = 0;
     public static final int LED_PCM = 7;
     public static final int ballLimitSwitch = 0;
+    public static final int SERVO = 4; 
     
     public static final int gripperSolenoidSideA = 2;
     public static final int gripperSolenoidSideB = 3;
