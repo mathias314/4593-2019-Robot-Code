@@ -7,6 +7,7 @@
 
 package frc.robot.subsystems;
 
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
@@ -23,11 +24,11 @@ public class ForkKnife extends Subsystem {
   // here. Call these from Commands.
 
   private Spark sparkOne = new Spark(RobotMap.ForkKnife.sparkOne);
-  public Spark sparkTwo = new Spark(RobotMap.ForkKnife.sparkTwo);
+  private Spark sparkTwo = new Spark(RobotMap.ForkKnife.sparkTwo);
 
   public SpeedControllerGroup fk = new SpeedControllerGroup(sparkOne, sparkTwo);
 
-  
+  public DigitalInput m_raiseTo = new DigitalInput(RobotMap.ForkKnife.highSwitch);
 
   @Override
   public void initDefaultCommand() {

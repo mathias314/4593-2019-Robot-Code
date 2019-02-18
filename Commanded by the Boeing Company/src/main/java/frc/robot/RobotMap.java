@@ -43,6 +43,8 @@ public class RobotMap {
     public static final int gripperSolenoidSideA = 6;
     public static final int gripperSolenoidSideB = 7;
 
+    public static final int highSwitch = 2;
+
     // figure out where these bad bois are actually plugged into
     // public static final int deployerSolenoidSideA = 2;
     // public static final int deployerSolenoidSid  eB = 3;
@@ -55,5 +57,7 @@ public class RobotMap {
     public static final int BackButton = 7;
     public static final int AButton = 0;
     public static final int BButton = 1;
+    public static final int XButton = 3;
+    public static final int YButton = 4;
   }
 }
