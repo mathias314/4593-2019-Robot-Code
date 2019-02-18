@@ -24,24 +24,28 @@ public class RobotMap {
   // public static int rangefinderPort = 1;
   // public static int rangefinderModule = 1;
   public static class Drive {
-    public static final int FLM = 3; // 3 should be
-    public static final int FRM = 1;
-    public static final int RLM = 4;
-    public static final int RRM = 2; // 2 should be
+    public static final int FLM = 1; 
+    public static final int FRM = 4;
+    public static final int RLM = 2;
+    public static final int RRM = 3; 
   }
 
   public static class ForkKnife {
-    public static final int sparkOne = 0;
-    public static final int sparkTwo = 1;
-    public static final int sparkBALL = 2;
-    public static final int solenoidSideA = 1;
-    public static final int solenoidSideB = 0;
-    public static final int LED_PCM = 7;
+    public static final int sparkOne = 1;
+    public static final int sparkTwo = 2;
+    public static final int sparkBALL = 0;
+    public static final int solenoidSideA = 0;
+    public static final int solenoidSideB = 1;
+    public static final int LED_PCM = 5;
     public static final int ballLimitSwitch = 0;
     public static final int SERVO = 4; 
-    
-    public static final int gripperSolenoidSideA = 2;
-    public static final int gripperSolenoidSideB = 3;
+ 
+    public static final int gripperSolenoidSideA = 6;
+    public static final int gripperSolenoidSideB = 7;
+
+    // figure out where these bad bois are actually plugged into
+    // public static final int deployerSolenoidSideA = 2;
+    // public static final int deployerSolenoidSid  eB = 3;
   }
 
   public static class Controls{

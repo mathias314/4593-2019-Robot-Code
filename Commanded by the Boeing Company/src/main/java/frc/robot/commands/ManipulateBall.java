@@ -29,12 +29,12 @@ public class ManipulateBall extends Command {
   @Override
   protected void execute() {
 
-    System.out.println(Robot.m_ballMan.m_ballLimitSwitch.get()); 
+   // System.out.println(Robot.m_ballMan.m_ballLimitSwitch.get()); 
     
 
     Boolean limitPressed = Robot.m_ballMan.m_ballLimitSwitch.get();
     if (Robot.m_oi.auxController.getXButton()){
-      Robot.m_ballMan.m_bMotor.set(-.6);
+      Robot.m_ballMan.m_bMotor.set(.8);
       Robot.m_ballMan.m_lit.set(false);
     } else if (limitPressed == false) {
       Robot.m_ballMan.m_bMotor.set(0);
@@ -45,7 +45,7 @@ public class ManipulateBall extends Command {
         //TODO: handle exception
       }
     } else if (Robot.m_oi.auxController.getYButton()) {
-        Robot.m_ballMan.m_bMotor.set(-.6);
+        Robot.m_ballMan.m_bMotor.set(.8);
         Robot.m_ballMan.m_lit.set(false);
       }
       else {

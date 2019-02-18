@@ -39,22 +39,23 @@ public class SPARKDrive extends Subsystem {
   public void init(){
     m_FLM.setInverted(false);
     m_FRM.setInverted(true);
-    m_FLM.setRampRate(0.5);
+    m_FLM.setClosedLoopRampRate(1);
     m_RLM.follow(m_FLM, false);
     m_RRM.follow(m_FRM, false);
-    m_RLM.setRampRate(0.5);
+    m_RLM.setClosedLoopRampRate(1);
 
     m_econtroller_left.setOutputRange(-1.0, 1.0);
-    m_econtroller_left.setFF(0.000173);
-    m_econtroller_left.setP(0.0008);
+    m_econtroller_left.setFF(0.000165);
+    m_econtroller_left.setP(0.0002);
     m_econtroller_left.setI(0);
-    m_econtroller_left.setD(0.0008);
+    m_econtroller_left.setD(0.8);
     m_econtroller_left.setIZone(0);
+
     m_econtroller_right.setOutputRange(-1.0, 1.0);
-    m_econtroller_right.setFF(0.00018);
-    m_econtroller_right.setP(0.0008);
+    m_econtroller_right.setFF(0.000165);
+    m_econtroller_right.setP(0.0002);
     m_econtroller_right.setI(0);
-    m_econtroller_right.setD(0.0015);
+    m_econtroller_right.setD(0.00008);
     m_econtroller_right.setIZone(0);
  }
 

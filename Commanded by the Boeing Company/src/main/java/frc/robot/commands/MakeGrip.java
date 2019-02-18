@@ -44,7 +44,8 @@ public class MakeGrip extends Command {
     } else if (Robot.m_oi.xboxController.getBButtonPressed()) {
       Robot.m_gripper.GripperSolenoid.set(DoubleSolenoid.Value.kReverse);
     }
-    
+  
+    // write up the controls for the hatch panel manipulator deploy, however and wherever we may wish to do so...
     
   }
 

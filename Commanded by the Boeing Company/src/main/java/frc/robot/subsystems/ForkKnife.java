@@ -23,7 +23,7 @@ public class ForkKnife extends Subsystem {
   // here. Call these from Commands.
 
   private Spark sparkOne = new Spark(RobotMap.ForkKnife.sparkOne);
-  private Spark sparkTwo = new Spark(RobotMap.ForkKnife.sparkTwo);
+  public Spark sparkTwo = new Spark(RobotMap.ForkKnife.sparkTwo);
 
   public SpeedControllerGroup fk = new SpeedControllerGroup(sparkOne, sparkTwo);
 
