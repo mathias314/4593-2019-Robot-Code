@@ -11,6 +11,8 @@ import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Servo;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.Spark;
+import edu.wpi.first.wpilibj.SpeedControllerGroup;
+import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
 import frc.robot.commands.ManipulateBall;
@@ -22,12 +24,15 @@ public class BallManipulator extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
 
-  public Spark m_bMotor = new Spark(RobotMap.ForkKnife.sparkBALL);
+  public Spark m_bSpark = new Spark(RobotMap.ForkKnife.sparkBALL);
+  public Talon m_bTalon = new Talon(RobotMap.ForkKnife.talonBALL);
 
   public DigitalInput m_ballLimitSwitch = new DigitalInput(RobotMap.ForkKnife.ballLimitSwitch);
 
-  public Solenoid m_lit = new Solenoid(RobotMap.ForkKnife.LED_PCM);
+  // public Solenoid m_lit = new Solenoid(RobotMap.ForkKnife.LED_PCM);
   
+  public double lastStop = System.currentTimeMillis();
+
   //replace with robotmap
   public Servo m_arms = new Servo(RobotMap.ForkKnife.SERVO);
 

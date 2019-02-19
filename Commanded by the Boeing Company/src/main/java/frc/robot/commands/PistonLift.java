@@ -33,9 +33,9 @@ public class PistonLift extends Command {
     // double up = Robot.m_oi.auxController.getAButtonPressed();
 
 
-    if (Robot.m_oi.auxController.getAButtonPressed()) {
+    if (Robot.m_oi.xboxController.getXButtonPressed()) {
       Robot.m_nomat.ds.set(DoubleSolenoid.Value.kForward);
-    } else if (Robot.m_oi.auxController.getBButtonPressed()) {
+    } else if (Robot.m_oi.xboxController.getYButtonPressed()) {
       Robot.m_nomat.ds.set(DoubleSolenoid.Value.kReverse);
     }
   }

@@ -26,7 +26,7 @@ public class RiseUp extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.m_fk.fk.set(0.4);
+    Robot.m_fk.fk.set(0.6);
   }
 
   // Make this return true when this Command no longer needs to run execute()
@@ -39,6 +39,7 @@ public class RiseUp extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
+    System.out.println("done");
     FkCommand throwback = new FkCommand();
     throwback.start();
   }

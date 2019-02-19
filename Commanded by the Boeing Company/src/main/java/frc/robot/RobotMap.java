@@ -34,6 +34,8 @@ public class RobotMap {
     public static final int sparkOne = 1;
     public static final int sparkTwo = 2;
     public static final int sparkBALL = 0;
+    public static final int talonBALL = 3;
+    
     public static final int solenoidSideA = 0;
     public static final int solenoidSideB = 1;
     public static final int LED_PCM = 5;
@@ -55,8 +57,8 @@ public class RobotMap {
     public static final int auxController = 1;
     public static final int StartButton = 8;
     public static final int BackButton = 7;
-    public static final int AButton = 0;
-    public static final int BButton = 1;
+    public static final int AButton = 1;
+    public static final int BButton = 2;
     public static final int XButton = 3;
     public static final int YButton = 4;
   }
