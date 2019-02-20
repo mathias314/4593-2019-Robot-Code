@@ -13,6 +13,7 @@ import frc.robot.subsystems.*;
 public class ArduinoMove extends Command {
   public ArduinoMove() {
     // Use requires() here to declare subsystem dependencies
+
     // requires(Robot.m_Arduino);
     // requires(Robot.m_subsystem);
   }
@@ -26,37 +27,36 @@ public class ArduinoMove extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    ArduinoPacket packet = new ArduinoPacket(1);
-    // ArduinoPacket packet = Robot.m_Arduino.readPacket();
+    ArduinoPacket packet = Robot.m_Arduino.readPacket();
     try {
       System.out.println(packet.mDirection);
     switch(packet.mDirection){
       case LEFT:
-        // Robot.m_subsystem.m_econtroller_left.setReference(0.3*5700, ControlType.kVelocity);
-        // Robot.m_subsystem.m_econtroller_right.setReference(0, ControlType.kVelocity);
+        Robot.m_subsystem.m_FLM.set(0.2);
+        Robot.m_subsystem.m_FRM.set(0);
         break;
       case RIGHT:
-        // Robot.m_subsystem.m_econtroller_left.setReference(0, ControlType.kVelocity);
-        // Robot.m_subsystem.m_econtroller_right.setReference(0.3*5700, ControlType.kVelocity);
+        Robot.m_subsystem.m_FLM.set(0);
+        Robot.m_subsystem.m_FRM.set(0.2);
         break;
       case TURNL:
-        // Robot.m_subsystem.m_econtroller_left.setReference(-0.3*5700, ControlType.kVelocity);
-        // Robot.m_subsystem.m_econtroller_right.setReference(0.3*5700, ControlType.kVelocity);
+        Robot.m_subsystem.m_FLM.set(-0.2);
+        Robot.m_subsystem.m_FRM.set(0.2);
         break;
       case TURNR:
-        // Robot.m_subsystem.m_econtroller_left.setReference(0.3*5700, ControlType.kVelocity);
-        // Robot.m_subsystem.m_econtroller_right.setReference(-0.3*5700, ControlType.kVelocity);
+        Robot.m_subsystem.m_FLM.set(0.2);
+        Robot.m_subsystem.m_FRM.set(-0.2);
         break;
       case FORWARDS:
-        // Robot.m_subsystem.m_econtroller_left.setReference(0, ControlType.kVelocity);
-        // Robot.m_subsystem.m_econtroller_right.setReference(0, ControlType.kVelocity);
-        Scheduler.getInstance().add(new SPARKDriveTeleop());
+        Robot.m_subsystem.m_FLM.set(0);
+        Robot.m_subsystem.m_FRM.set(0);
+        new SPARKDriveTeleop().start();
         break;
       default:
-        Scheduler.getInstance().add(new SPARKDriveTeleop());
+        // new SPARKDriveTeleop().start();
     }
   } catch (NullPointerException e) {
-      Scheduler.getInstance().add(new SPARKDriveTeleop());
+      // new SPARKDriveTeleop().start();
     }
   }
 

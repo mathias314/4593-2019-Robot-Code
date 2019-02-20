@@ -9,9 +9,11 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.OI;
 import frc.robot.Robot;
+import frc.robot.RobotMap;
 import frc.robot.subsystems.ForkKnife;
 import frc.robot.subsystems.Gripper;
 
@@ -46,8 +48,16 @@ public class MakeGrip extends Command {
     }
   
     // write up the controls for the hatch panel manipulator deploy, however and wherever we may wish to do so...
+    if (Robot.m_oi.auxController.getBumper(Hand.kRight)) {
+      Robot.m_gripper.DeployerSolenoid.set(DoubleSolenoid.Value.kForward);
+    }
+    else if (Robot.m_oi.auxController.getBumper(Hand.kLeft)) {
+      Robot.m_gripper.DeployerSolenoid.set(DoubleSolenoid.Value.kReverse);
+    }
     
   }
+    
+
 
   // Make this return true when this Command no longer needs to run execute()
   @Override

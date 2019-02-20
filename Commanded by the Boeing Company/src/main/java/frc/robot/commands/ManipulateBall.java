@@ -10,6 +10,7 @@ package frc.robot.commands;
 import java.util.concurrent.TimeUnit;
 
 import edu.wpi.first.wpilibj.GenericHID.Hand;
+import edu.wpi.first.wpilibj.Relay.Value;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
@@ -29,34 +30,27 @@ public class ManipulateBall extends Command {
   @Override
   protected void execute() {
 
-   // System.out.println(Robot.m_ballMan.m_ballLimitSwitch.get()); 
+    // System.out.println(Robot.m_ballMan.m_ballLimitSwitch.get()); 
     
 
     Boolean limitPressed = Robot.m_ballMan.m_ballLimitSwitch.get();
     if (Robot.m_oi.auxController.getYButton()){
       Robot.m_ballMan.m_bSpark.set(0.8);
-      // Robot.m_ballMan.m_lit.set(false);
     } else if (limitPressed == false) {
       Robot.m_ballMan.m_bTalon.set(0);
       Robot.m_ballMan.m_bSpark.set(0);
       Robot.m_ballMan.lastStop = System.currentTimeMillis();
+      Robot.m_ballMan.m_lit.set(Value.kForward);
     } else if (Robot.m_oi.auxController.getXButton()  && System.currentTimeMillis() - Robot.m_ballMan.lastStop > 1000) {
       Robot.m_ballMan.m_bTalon.set(1);
-      Robot.m_ballMan.m_bSpark.set(0.35);
+      Robot.m_ballMan.m_bSpark.set(0.5);
         // Robot.m_ballMan.m_lit.set(true);
       }
       else {
         Robot.m_ballMan.m_bTalon.set(0);
         Robot.m_ballMan.m_bSpark.set(0);
+        Robot.m_ballMan.m_lit.set(Value.kReverse);
       }
-
-      
-    if (Robot.m_oi.auxController.getBumper(Hand.kRight)){
-      System.out.println("trying");
-      Robot.m_ballMan.m_arms.setAngle(1);
-    } else if (Robot.m_oi.auxController.getBumper(Hand.kLeft)){
-      Robot.m_ballMan.m_arms.setAngle(200);
-    }
     
     }
   

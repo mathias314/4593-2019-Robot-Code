@@ -34,8 +34,9 @@ public class RobotMap {
     public static final int sparkOne = 1;
     public static final int sparkTwo = 2;
     public static final int sparkBALL = 0;
-    public static final int talonBALL = 3;
-    
+    public static final int talonBallRight = 3;
+    public static final int talonBallLeft = 4;
+
     public static final int solenoidSideA = 0;
     public static final int solenoidSideB = 1;
     public static final int LED_PCM = 5;
@@ -48,8 +49,8 @@ public class RobotMap {
     public static final int highSwitch = 2;
 
     // figure out where these bad bois are actually plugged into
-    // public static final int deployerSolenoidSideA = 2;
-    // public static final int deployerSolenoidSid  eB = 3;
+    public static final int deployerSolenoidSideA = 2;
+    public static final int deployerSolenoidSideB = 3;
   }
 
   public static class Controls{

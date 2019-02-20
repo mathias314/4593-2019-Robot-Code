@@ -36,7 +36,11 @@ return new ArduinoPacket(rawData[0]);
 
 @Override
 protected void initDefaultCommand() {
-    pixy = new SerialPort(19200, port);
+    try{pixy = new SerialPort(19200, port);
     pixy.setReadBufferSize(1);
+    pixy.setTimeout(.01);
+    } catch (Exception e) {
+        System.out.println(e);
+    }
 }
 } 

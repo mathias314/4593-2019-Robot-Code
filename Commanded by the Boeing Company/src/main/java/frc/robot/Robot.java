@@ -23,6 +23,7 @@ Hans didn't say anything because he's a heccing llama, and llama's can't talk.
 
 package frc.robot;
 
+import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -49,7 +50,7 @@ public class Robot extends TimedRobot {
   public static ForkKnife m_fk = new ForkKnife();
   public static Nomatics m_nomat = new Nomatics();
   public static BallManipulator m_ballMan = new BallManipulator();
-  // public static Arduino m_Arduino = new Arduino();
+  public static Arduino m_Arduino = new Arduino();
   public static Gripper m_gripper = new Gripper();
   public static OI m_oi;
 
@@ -66,6 +67,7 @@ public class Robot extends TimedRobot {
     m_chooser.setDefaultOption("Default Auto", new SPARKDriveTeleop());
     // chooser.addOption("My Auto", new MyAutoCommand());
     SmartDashboard.putData("Auto mode", m_chooser);
+    CameraServer.getInstance().startAutomaticCapture();
     m_subsystem.init();
   }
 

@@ -8,11 +8,14 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.DigitalInput;
+import edu.wpi.first.wpilibj.PWMTalonSRX;
+import edu.wpi.first.wpilibj.Relay;
 import edu.wpi.first.wpilibj.Servo;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.Talon;
+import edu.wpi.first.wpilibj.Relay.Direction;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
 import frc.robot.commands.ManipulateBall;
@@ -25,16 +28,16 @@ public class BallManipulator extends Subsystem {
   // here. Call these from Commands.
 
   public Spark m_bSpark = new Spark(RobotMap.ForkKnife.sparkBALL);
-  public Talon m_bTalon = new Talon(RobotMap.ForkKnife.talonBALL);
+  private PWMTalonSRX m_bTalonLeft = new PWMTalonSRX(RobotMap.ForkKnife.talonBallLeft);
+  private PWMTalonSRX m_bTalonRight = new PWMTalonSRX(RobotMap.ForkKnife.talonBallRight);
+  public SpeedControllerGroup m_bTalon = new SpeedControllerGroup(m_bTalonLeft, m_bTalonRight);
 
   public DigitalInput m_ballLimitSwitch = new DigitalInput(RobotMap.ForkKnife.ballLimitSwitch);
 
-  // public Solenoid m_lit = new Solenoid(RobotMap.ForkKnife.LED_PCM);
+  public Relay m_lit = new Relay(0);
   
   public double lastStop = System.currentTimeMillis();
 
-  //replace with robotmap
-  public Servo m_arms = new Servo(RobotMap.ForkKnife.SERVO);
 
   @Override
   public void initDefaultCommand() {

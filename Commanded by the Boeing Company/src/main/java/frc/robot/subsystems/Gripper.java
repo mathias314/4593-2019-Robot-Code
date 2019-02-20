@@ -21,6 +21,8 @@ public class Gripper extends Subsystem {
   // here. Call these from Commands.
   public DoubleSolenoid GripperSolenoid = new DoubleSolenoid(RobotMap.ForkKnife.gripperSolenoidSideA, RobotMap.ForkKnife.gripperSolenoidSideB);
 
+  public DoubleSolenoid DeployerSolenoid = new DoubleSolenoid(RobotMap.ForkKnife.deployerSolenoidSideA, RobotMap.ForkKnife.deployerSolenoidSideB);
+
   // public DoubleSolenoid DeploySolenoid = new DoubleSolenoid(RobotMap.ForkKnife.deployerSolenoidSideA, RobotMap.ForkKnife.deployerSolenoidSideB);
 
   @Override
