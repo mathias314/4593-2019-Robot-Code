@@ -39,16 +39,14 @@ public class RobotMap {
 
     public static final int solenoidSideA = 0;
     public static final int solenoidSideB = 1;
-    public static final int LED_PCM = 5;
+    // public static final int LED_PCM = 5;  f for the led in the pcm :(
     public static final int ballLimitSwitch = 0;
-    public static final int SERVO = 4; 
  
     public static final int gripperSolenoidSideA = 6;
     public static final int gripperSolenoidSideB = 7;
 
     public static final int highSwitch = 2;
 
-    // figure out where these bad bois are actually plugged into
     public static final int deployerSolenoidSideA = 2;
     public static final int deployerSolenoidSideB = 3;
   }

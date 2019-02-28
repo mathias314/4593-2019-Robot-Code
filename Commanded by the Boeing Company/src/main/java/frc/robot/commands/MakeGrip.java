@@ -40,6 +40,7 @@ public class MakeGrip extends Command {
     // this is subject to change, and most likely should be changed eventually
     // we need to figure out complete control mapping at some point, so we don't have to deal with crappy control schemes like this... :(
 
+    // gripper and deployer are flipped, the depl
     
     if (Robot.m_oi.xboxController.getAButtonPressed()) {
       Robot.m_gripper.GripperSolenoid.set(DoubleSolenoid.Value.kForward);

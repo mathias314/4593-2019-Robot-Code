@@ -43,7 +43,7 @@ public class ManipulateBall extends Command {
       Robot.m_ballMan.m_lit.set(Value.kForward);
     } else if (Robot.m_oi.auxController.getXButton()  && System.currentTimeMillis() - Robot.m_ballMan.lastStop > 1000) {
       Robot.m_ballMan.m_bTalon.set(1);
-      Robot.m_ballMan.m_bSpark.set(0.5);
+      Robot.m_ballMan.m_bSpark.set(1);
         // Robot.m_ballMan.m_lit.set(true);
       }
       else {

@@ -28,10 +28,10 @@ public class FkCommand extends Command {
     // System.out.println(Robot.m_fk.m_raiseTo.get());
     double rawRight = Robot.m_oi.auxController.getTriggerAxis(Hand.kRight);
     double rawLeft = Robot.m_oi.auxController.getTriggerAxis(Hand.kLeft);
-    if(rawRight > 0.15){
-      Robot.m_fk.fk.set(rawRight*0.75);
-    } else if (rawLeft > 0.15){
-      Robot.m_fk.fk.set(-rawLeft*0.75);
+    if(rawLeft > 0.15){
+      Robot.m_fk.fk.set(rawLeft*0.75);
+    } else if (rawRight > 0.15){
+      Robot.m_fk.fk.set(-rawRight*0.75);
     } else {
       Robot.m_fk.fk.set(0);
     }
