@@ -42,17 +42,17 @@ public class MakeGrip extends Command {
 
     // gripper and deployer are flipped, the depl
     
-    if (Robot.m_oi.xboxController.getAButtonPressed()) {
+    if (Robot.m_oi.xboxController.getBumper(Hand.kLeft)) {
       Robot.m_gripper.GripperSolenoid.set(DoubleSolenoid.Value.kForward);
-    } else if (Robot.m_oi.xboxController.getBButtonPressed()) {
+    } else if (Robot.m_oi.xboxController.getBumper(Hand.kRight)) {
       Robot.m_gripper.GripperSolenoid.set(DoubleSolenoid.Value.kReverse);
     }
   
     // write up the controls for the hatch panel manipulator deploy, however and wherever we may wish to do so...
-    if (Robot.m_oi.auxController.getBumper(Hand.kRight)) {
+    if (Robot.m_oi.auxController.getBumper(Hand.kLeft)) {
       Robot.m_gripper.DeployerSolenoid.set(DoubleSolenoid.Value.kForward);
     }
-    else if (Robot.m_oi.auxController.getBumper(Hand.kLeft)) {
+    else if (Robot.m_oi.auxController.getBumper(Hand.kRight)) {
       Robot.m_gripper.DeployerSolenoid.set(DoubleSolenoid.Value.kReverse);
     }
     

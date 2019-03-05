@@ -68,6 +68,7 @@ public class Robot extends TimedRobot {
     // chooser.addOption("My Auto", new MyAutoCommand());
     SmartDashboard.putData("Auto mode", m_chooser);
     CameraServer.getInstance().startAutomaticCapture();
+    
     m_subsystem.init();
   }
 
@@ -111,6 +112,7 @@ public class Robot extends TimedRobot {
   @Override
   public void autonomousInit() {
     m_autonomousCommand = m_chooser.getSelected();
+    
 
     /*
      * String autoSelected = SmartDashboard.getString("Auto Selector",

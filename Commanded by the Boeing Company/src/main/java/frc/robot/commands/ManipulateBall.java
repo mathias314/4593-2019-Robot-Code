@@ -34,22 +34,24 @@ public class ManipulateBall extends Command {
     
 
     Boolean limitPressed = Robot.m_ballMan.m_ballLimitSwitch.get();
+    // Boolean relay = Robot.m_ballMan.m_relay.get();
+
     if (Robot.m_oi.auxController.getYButton()){
-      Robot.m_ballMan.m_bSpark.set(0.8);
+      Robot.m_ballMan.m_bSpark.set(.8);
     } else if (limitPressed == false) {
       Robot.m_ballMan.m_bTalon.set(0);
       Robot.m_ballMan.m_bSpark.set(0);
       Robot.m_ballMan.lastStop = System.currentTimeMillis();
-      Robot.m_ballMan.m_lit.set(Value.kForward);
+      Robot.m_ballMan.m_relay.set(false);
     } else if (Robot.m_oi.auxController.getXButton()  && System.currentTimeMillis() - Robot.m_ballMan.lastStop > 1000) {
-      Robot.m_ballMan.m_bTalon.set(1);
-      Robot.m_ballMan.m_bSpark.set(1);
+      Robot.m_ballMan.m_bTalon.set(-1);
+      Robot.m_ballMan.m_bSpark.set(.6);
         // Robot.m_ballMan.m_lit.set(true);
       }
       else {
         Robot.m_ballMan.m_bTalon.set(0);
         Robot.m_ballMan.m_bSpark.set(0);
-        Robot.m_ballMan.m_lit.set(Value.kReverse);
+        Robot.m_ballMan.m_relay.set(true);
       }
     
     }

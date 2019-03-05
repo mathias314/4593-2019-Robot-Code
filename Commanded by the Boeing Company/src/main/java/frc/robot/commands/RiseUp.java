@@ -26,7 +26,7 @@ public class RiseUp extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    System.out.println("God is currently trying to smite us");
+    System.out.println("Wanna buy this crowbar bro??");
   }
 
   // Make this return true when this Command no longer needs to run execute()

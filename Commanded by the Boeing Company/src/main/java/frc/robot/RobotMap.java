@@ -49,6 +49,8 @@ public class RobotMap {
 
     public static final int deployerSolenoidSideA = 2;
     public static final int deployerSolenoidSideB = 3;
+
+    public static final int relay = 3;
   }
 
   public static class Controls{

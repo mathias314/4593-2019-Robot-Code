@@ -29,9 +29,9 @@ public class FkCommand extends Command {
     double rawRight = Robot.m_oi.auxController.getTriggerAxis(Hand.kRight);
     double rawLeft = Robot.m_oi.auxController.getTriggerAxis(Hand.kLeft);
     if(rawLeft > 0.15){
-      Robot.m_fk.fk.set(rawLeft*0.75);
+      Robot.m_fk.fk.set(rawLeft*1); // possibly .75 on the actual comp bot, due to different gearings
     } else if (rawRight > 0.15){
-      Robot.m_fk.fk.set(-rawRight*0.75);
+      Robot.m_fk.fk.set(-rawRight*1); // possibly .75 on the actual comp bot, due to different gearings
     } else {
       Robot.m_fk.fk.set(0);
     }

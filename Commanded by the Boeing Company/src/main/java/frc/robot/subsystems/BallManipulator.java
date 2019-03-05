@@ -8,6 +8,7 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.DigitalInput;
+import edu.wpi.first.wpilibj.DigitalOutput;
 import edu.wpi.first.wpilibj.PWMTalonSRX;
 import edu.wpi.first.wpilibj.Relay;
 import edu.wpi.first.wpilibj.Servo;
@@ -33,6 +34,7 @@ public class BallManipulator extends Subsystem {
   public SpeedControllerGroup m_bTalon = new SpeedControllerGroup(m_bTalonLeft, m_bTalonRight);
 
   public DigitalInput m_ballLimitSwitch = new DigitalInput(RobotMap.ForkKnife.ballLimitSwitch);
+  public DigitalOutput m_relay = new DigitalOutput(RobotMap.ForkKnife.relay);
 
   public Relay m_lit = new Relay(0);
   

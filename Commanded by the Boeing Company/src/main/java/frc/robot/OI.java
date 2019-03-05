@@ -55,13 +55,13 @@ public class OI {
   public XboxController auxController = new XboxController(Controls.auxController);
   public JoystickButton Back = new JoystickButton(xboxController, Controls.BackButton);
   public JoystickButton Start = new JoystickButton(xboxController, Controls.StartButton);
-  public JoystickButton Raise = new JoystickButton(auxController, Controls.StartButton);
-  public JoystickButton Stop = new JoystickButton(auxController, Controls.BackButton);
+  public JoystickButton RaiseForklift = new JoystickButton(auxController, Controls.StartButton);
+  public JoystickButton OhGodStop = new JoystickButton(auxController, Controls.BackButton);
   
   public OI(){
     Back.whenPressed(new SPARKDriveTeleop());
     Start.whenPressed(new ArduinoMove());
-    Raise.whenPressed(new RiseUp());
-    Stop.whenPressed(new FkCommand());
+    RaiseForklift.whenPressed(new RiseUp());
+    OhGodStop.whenPressed(new FkCommand());
   }
 }
