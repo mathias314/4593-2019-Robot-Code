@@ -28,6 +28,13 @@ public class FkCommand extends Command {
     // System.out.println(Robot.m_fk.m_raiseTo.get());
     double rawRight = Robot.m_oi.auxController.getTriggerAxis(Hand.kRight);
     double rawLeft = Robot.m_oi.auxController.getTriggerAxis(Hand.kLeft);
+
+    System.out.println("The forklift is tweaking");
+
+    // double voltage = Robot.m_fk.fk.get();
+    // System.out.println(voltage);
+    // Getting voltage from a pwm motor controller group? 
+
     if(rawLeft > 0.15){
       Robot.m_fk.fk.set(rawLeft*1); // possibly .75 on the actual comp bot, due to different gearings
     } else if (rawRight > 0.15){
