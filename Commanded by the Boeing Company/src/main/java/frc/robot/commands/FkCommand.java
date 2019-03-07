@@ -29,7 +29,7 @@ public class FkCommand extends Command {
     double rawRight = Robot.m_oi.auxController.getTriggerAxis(Hand.kRight);
     double rawLeft = Robot.m_oi.auxController.getTriggerAxis(Hand.kLeft);
 
-    System.out.println("The forklift is tweaking");
+    // System.out.println("The forklift is tweaking");
 
     // double voltage = Robot.m_fk.fk.get();
     // System.out.println(voltage);

@@ -34,8 +34,8 @@ public class SPARKDriveTeleop extends Command {
   protected void execute() {
     double rawFive = Robot.m_oi.xboxController.getRawAxis(5);
     double rawOne = Robot.m_oi.xboxController.getRawAxis(1);
-    double one = Math.abs(1 * rawOne) > 0.15 ? -1500 * (1/0.95) * (Math.abs(rawOne) - 0.05) * Math.signum(rawOne): 0; // left forwards allegedly
-    double five = Math.abs(1 * rawFive) > 0.15 ? -1500 * (1/0.95) * (Math.abs(rawFive) - 0.05) * Math.signum(rawFive): 0; // right forwards
+    double one = Math.abs(1 * rawOne) > 0.15 ? -3250 * (1/0.95) * (Math.abs(rawOne) - 0.05) * Math.signum(rawOne): 0; // left forwards allegedly
+    double five = Math.abs(1 * rawFive) > 0.15 ? -3250 * (1/0.95) * (Math.abs(rawFive) - 0.05) * Math.signum(rawFive): 0; // right forwards
     SmartDashboard.putNumber("left", Robot.m_subsystem.m_encoder_left.getVelocity());
     SmartDashboard.putNumber("right", Robot.m_subsystem.m_encoder_right.getVelocity());
     if(one != 0){
