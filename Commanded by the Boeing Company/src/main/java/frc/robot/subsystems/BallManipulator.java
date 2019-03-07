@@ -36,11 +36,11 @@ public class BallManipulator extends Subsystem {
   public DigitalInput m_ballLimitSwitch = new DigitalInput(RobotMap.ForkKnife.ballLimitSwitch);
   public DigitalOutput m_relay = new DigitalOutput(RobotMap.ForkKnife.relay);
 
-  public Relay m_lit = new Relay(0);
   public int relay_blinks;
   public boolean relay_state;
   
   public double lastStop = System.currentTimeMillis();
+  public double lastBlink = System.currentTimeMillis();
 
 
   @Override
