@@ -42,7 +42,16 @@ public class ManipulateBall extends Command {
       Robot.m_ballMan.m_bTalon.set(0);
       Robot.m_ballMan.m_bSpark.set(0);
       Robot.m_ballMan.lastStop = System.currentTimeMillis();
-      Robot.m_ballMan.m_relay.set(false);
+      
+      if(Robot.m_ballMan.relay_blinks < 8 && System.currentTimeMillis - Robot.m_ballMan.lastBlink > 500) {
+        Robot.m_ballMan.relay_state = !Robot.m_ballMan.relay_state;
+        Robot.m_ballMan.m_relay.set(Robot.m_ballMan.relay_state);
+        Robot.m_ballMan.relay_blinks++;
+        Robot.m_ballMan.lastBlink = System.currentTimeMillis();
+      } else if(relay_blinks >= 8) {
+        Robot.m_ballMan.m_relay.set(false);
+        Robot.m_ballMan.relay_state = false;
+      }
     } else if (Robot.m_oi.auxController.getXButton()  && System.currentTimeMillis() - Robot.m_ballMan.lastStop > 1000) {
       Robot.m_ballMan.m_bTalon.set(-1);
       Robot.m_ballMan.m_bSpark.set(.6);
@@ -52,6 +61,8 @@ public class ManipulateBall extends Command {
         Robot.m_ballMan.m_bTalon.set(0);
         Robot.m_ballMan.m_bSpark.set(0);
         Robot.m_ballMan.m_relay.set(true);
+        Robot.m_ballMan.relay_blinks = 0;
+        Robot.m_ballMan.relay_state = true;
       }
     
     }
