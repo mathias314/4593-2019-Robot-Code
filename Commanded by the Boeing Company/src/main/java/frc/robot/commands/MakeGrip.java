@@ -28,7 +28,7 @@ public class MakeGrip extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    Robot.m_gripper.GripperSolenoid.set(DoubleSolenoid.Value.kOff);
+    // Robot.m_gripper.GripperSolenoid.set(DoubleSolenoid.Value.kReverse);
   }
 
   // Called repeatedly when this Command is scheduled to run
@@ -40,19 +40,19 @@ public class MakeGrip extends Command {
     // this is subject to change, and most likely should be changed eventually
     // we need to figure out complete control mapping at some point, so we don't have to deal with crappy control schemes like this... :(
 
-    // gripper and deployer are flipped, the depl
+    // gripper and deployer are fl.ipped, the depl
     
-    if (Robot.m_oi.xboxController.getBumper(Hand.kLeft)) {
+    if (Robot.m_oi.auxController.getBumper(Hand.kLeft)) {
       Robot.m_gripper.GripperSolenoid.set(DoubleSolenoid.Value.kForward);
-    } else if (Robot.m_oi.xboxController.getBumper(Hand.kRight)) {
+    } else if (Robot.m_oi.auxController.getBumper(Hand.kRight)) {
       Robot.m_gripper.GripperSolenoid.set(DoubleSolenoid.Value.kReverse);
     }
   
     // write up the controls for the hatch panel manipulator deploy, however and wherever we may wish to do so...
-    if (Robot.m_oi.auxController.getBumper(Hand.kLeft)) {
+    if (Robot.m_oi.xboxController.getBumper(Hand.kRight)) {
       Robot.m_gripper.DeployerSolenoid.set(DoubleSolenoid.Value.kForward);
     }
-    else if (Robot.m_oi.auxController.getBumper(Hand.kRight)) {
+    else if (Robot.m_oi.xboxController.getBumper(Hand.kLeft)) {
       Robot.m_gripper.DeployerSolenoid.set(DoubleSolenoid.Value.kReverse);
     }
     

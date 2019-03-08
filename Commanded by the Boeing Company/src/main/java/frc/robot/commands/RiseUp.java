@@ -27,14 +27,14 @@ public class RiseUp extends Command {
   @Override
   protected void execute() {
     System.out.println("Wanna buy this crowbar bro??");
+    // Robot.m_fk.fk.set(-6);
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
     System.out.println(!Robot.m_fk.m_raiseTo.get());
-    // return !Robot.m_fk.m_raiseTo.get();
-    return true;
+    return !Robot.m_fk.m_raiseTo.get();
   }
 
   // Called once after isFinished returns true

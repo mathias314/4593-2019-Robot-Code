@@ -45,12 +45,12 @@ public class RobotMap {
     public static final int gripperSolenoidSideA = 6;
     public static final int gripperSolenoidSideB = 7;
 
-    public static final int highSwitch = 2;
+    public static final int highSwitch = 1;
 
     public static final int deployerSolenoidSideA = 2;
     public static final int deployerSolenoidSideB = 3;
 
-    public static final int relay = 3;
+    public static final int relay = 2;
   }
 
   public static class Controls{

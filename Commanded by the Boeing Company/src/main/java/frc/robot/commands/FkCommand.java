@@ -36,9 +36,9 @@ public class FkCommand extends Command {
     // Getting voltage from a pwm motor controller group? 
 
     if(rawLeft > 0.15){
-      Robot.m_fk.fk.set(rawLeft*1); // possibly .75 on the actual comp bot, due to different gearings
+      Robot.m_fk.fk.set(-rawLeft*1); // possibly .75 on the actual comp bot, due to different gearings
     } else if (rawRight > 0.15){
-      Robot.m_fk.fk.set(-rawRight*1); // possibly .75 on the actual comp bot, due to different gearings
+      Robot.m_fk.fk.set(rawRight*1); // possibly .75 on the actual comp bot, due to different gearings
     } else {
       Robot.m_fk.fk.set(0);
     }
