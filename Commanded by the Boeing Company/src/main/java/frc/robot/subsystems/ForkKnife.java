@@ -30,6 +30,8 @@ public class ForkKnife extends Subsystem {
 
   public DigitalInput m_raiseTo = new DigitalInput(RobotMap.ForkKnife.highSwitch);
 
+  public long lastStop = System.currentTimeMillis();
+
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.

@@ -62,7 +62,7 @@ public class ManipulateBall extends Command {
         Robot.m_ballMan.m_bSpark.set(0);
         Robot.m_ballMan.m_relay.set(true);
         Robot.m_ballMan.relay_blinks = 0;
-        Robot.m_ballMan.relay_state = true;
+        Robot.m_ballMan.relay_state = (true);
       }
     
     }
