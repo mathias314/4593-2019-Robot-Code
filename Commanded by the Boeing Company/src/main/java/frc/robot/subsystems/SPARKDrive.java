@@ -7,11 +7,11 @@
 
 package frc.robot.subsystems;
 
-import edu.wpi.first.wpilibj.PIDController;
-import edu.wpi.first.wpilibj.SpeedController;
-import edu.wpi.first.wpilibj.SpeedControllerGroup;
+// import edu.wpi.first.wpilibj.PIDController;
+// import edu.wpi.first.wpilibj.SpeedController;
+// import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.command.Subsystem;
-import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+// import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import frc.robot.RobotMap;
 import frc.robot.commands.SPARKDriveTeleop;
 
@@ -27,11 +27,11 @@ public class SPARKDrive extends Subsystem {
   private CANSparkMax m_RRM = new CANSparkMax(RobotMap.Drive.RRM, MotorType.kBrushless);
 
   public CANPIDController m_econtroller_left = new CANPIDController(m_FLM);
-  public CANEncoder m_encoder_left = new CANEncoder(m_FLM);
+  // public CANEncoder m_encoder_left = new CANEncoder(m_FLM);
   public CANPIDController m_econtroller_right = new CANPIDController(m_FRM);
-  public CANEncoder m_encoder_right = new CANEncoder(m_FRM);
+  // public CANEncoder m_encoder_right = new CANEncoder(m_FRM);
 
-  // TODO INIT MOTORS INVERTED PROPERLY
+  public double speed = 3750;
 
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
@@ -49,14 +49,14 @@ public class SPARKDrive extends Subsystem {
     m_econtroller_left.setP(0.00035);
     m_econtroller_left.setI(0);
     m_econtroller_left.setD(0);
-    m_econtroller_left.setIZone(0);
+    // m_econtroller_left.setIZone(0);
 
     m_econtroller_right.setOutputRange(-1.0, 1.0);
     m_econtroller_right.setFF(0.00016);
     m_econtroller_right.setP(0.00035);
     m_econtroller_right.setI(0);
     m_econtroller_right.setD(0);
-    m_econtroller_right.setIZone(0);
+    // m_econtroller_right.setIZone(0);
  }
 
 

@@ -30,9 +30,9 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import frc.robot.commands.MakeGrip;
+// import frc.robot.commands.MakeGrip;
 import frc.robot.commands.SPARKDriveTeleop;
-import frc.robot.subsystems.Arduino;
+// import frc.robot.subsystems.Arduino;
 import frc.robot.subsystems.BallManipulator;
 import frc.robot.subsystems.ForkKnife;
 import frc.robot.subsystems.Gripper;
@@ -51,7 +51,7 @@ public class Robot extends TimedRobot {
   public static ForkKnife m_fk = new ForkKnife();
   public static Nomatics m_nomat = new Nomatics();
   public static BallManipulator m_ballMan = new BallManipulator();
-  public static Arduino m_Arduino = new Arduino();
+  // public static Arduino m_Arduino = new Arduino();
   public static Gripper m_gripper = new Gripper();
   public static OI m_oi;
 
@@ -69,7 +69,6 @@ public class Robot extends TimedRobot {
     // chooser.addOption("My Auto", new MyAutoCommand());
     SmartDashboard.putData("Auto mode", m_chooser);
     CameraServer.getInstance().startAutomaticCapture();
-    
     m_subsystem.init();
   }
 

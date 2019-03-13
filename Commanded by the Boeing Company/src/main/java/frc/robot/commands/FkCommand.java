@@ -38,13 +38,13 @@ public class FkCommand extends Command {
     // System.out.println(voltage);
     // Getting voltage from a pwm motor controller group? 
 
-    System.out.println(Robot.m_fk.m_raiseTo.get());
+    // System.out.println(Robot.m_fk.m_raiseTo.get());
 
-    if(rawLeft > 0.15){
-      Robot.m_fk.fk.set(-rawLeft*1); // possibly .75 on the actual comp bot, due to different gearings
+    if (rawLeft > 0.15){
+      Robot.m_fk.fk.set(-rawLeft); // possibly .75 on the actual comp bot, due to different gearings
       Robot.m_fk.lastStop = System.currentTimeMillis();
     } else if (rawRight > 0.15 && Robot.m_fk.m_raiseTo.get()){
-      Robot.m_fk.fk.set(rawRight*1); // possibly .75 on the actual comp bot, due to different gearings
+      Robot.m_fk.fk.set(rawRight); // possibly .75 on the actual comp bot, due to different gearings
       Robot.m_fk.lastStop = System.currentTimeMillis();
     } else if (System.currentTimeMillis() - Robot.m_fk.lastStop < 7521) {
       Robot.m_fk.fk.set(.15);

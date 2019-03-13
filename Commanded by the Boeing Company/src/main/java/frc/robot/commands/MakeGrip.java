@@ -10,12 +10,12 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.GenericHID.Hand;
-import edu.wpi.first.wpilibj.command.Command;
-import frc.robot.OI;
+// import edu.wpi.first.wpilibj.command.Command;
+// import frc.robot.OI;
 import frc.robot.Robot;
-import frc.robot.RobotMap;
-import frc.robot.subsystems.ForkKnife;
-import frc.robot.subsystems.Gripper;
+// import frc.robot.RobotMap;
+// import frc.robot.subsystems.ForkKnife;
+// import frc.robot.subsystems.Gripper;
 
 public class MakeGrip extends Command {
   public MakeGrip() {

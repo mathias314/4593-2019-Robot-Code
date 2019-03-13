@@ -8,15 +8,15 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.DigitalInput;
-import edu.wpi.first.wpilibj.DigitalOutput;
+// import edu.wpi.first.wpilibj.DigitalOutput;
 import edu.wpi.first.wpilibj.PWMTalonSRX;
-import edu.wpi.first.wpilibj.Relay;
-import edu.wpi.first.wpilibj.Servo;
-import edu.wpi.first.wpilibj.Solenoid;
+// import edu.wpi.first.wpilibj.Relay;
+// import edu.wpi.first.wpilibj.Servo;
+// import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
-import edu.wpi.first.wpilibj.Talon;
-import edu.wpi.first.wpilibj.Relay.Direction;
+// import edu.wpi.first.wpilibj.Talon;
+// import edu.wpi.first.wpilibj.Relay.Direction;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
 import frc.robot.commands.ManipulateBall;
@@ -34,13 +34,13 @@ public class BallManipulator extends Subsystem {
   public SpeedControllerGroup m_bTalon = new SpeedControllerGroup(m_bTalonLeft, m_bTalonRight);
 
   public DigitalInput m_ballLimitSwitch = new DigitalInput(RobotMap.ForkKnife.ballLimitSwitch);
-  public DigitalOutput m_relay = new DigitalOutput(RobotMap.ForkKnife.relay);
+  // public DigitalOutput m_relay = new DigitalOutput(RobotMap.ForkKnife.relay);
 
-  public int relay_blinks;
-  public boolean relay_state;
+  // public int relay_blinks;
+  // public boolean relay_state;
   
   public double lastStop = System.currentTimeMillis();
-  public double lastBlink = System.currentTimeMillis();
+  // public double lastBlink = System.currentTimeMillis();
 
 
   @Override

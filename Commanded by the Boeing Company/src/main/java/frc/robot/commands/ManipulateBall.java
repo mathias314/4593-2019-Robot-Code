@@ -7,10 +7,10 @@
 
 package frc.robot.commands;
 
-import java.util.concurrent.TimeUnit;
+// import java.util.concurrent.TimeUnit;
 
-import edu.wpi.first.wpilibj.GenericHID.Hand;
-import edu.wpi.first.wpilibj.Relay.Value;
+//  import edu.wpi.first.wpilibj.GenericHID.Hand;
+// import edu.wpi.first.wpilibj.Relay.Value;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
@@ -42,7 +42,7 @@ public class ManipulateBall extends Command {
       Robot.m_ballMan.m_bTalon.set(0);
       Robot.m_ballMan.m_bSpark.set(0);
       Robot.m_ballMan.lastStop = System.currentTimeMillis();
-      
+      /**
       if(Robot.m_ballMan.relay_blinks < 8 && System.currentTimeMillis() - Robot.m_ballMan.lastBlink > 500) {
         Robot.m_ballMan.relay_state = !Robot.m_ballMan.relay_state;
         Robot.m_ballMan.m_relay.set(Robot.m_ballMan.relay_state);
@@ -52,6 +52,7 @@ public class ManipulateBall extends Command {
         Robot.m_ballMan.m_relay.set(false);
         Robot.m_ballMan.relay_state = false;
       }
+      */
     } else if (Robot.m_oi.auxController.getXButton()  && System.currentTimeMillis() - Robot.m_ballMan.lastStop > 1000) {
       Robot.m_ballMan.m_bTalon.set(-1);
       Robot.m_ballMan.m_bSpark.set(.6);
@@ -60,9 +61,9 @@ public class ManipulateBall extends Command {
       else {
         Robot.m_ballMan.m_bTalon.set(0);
         Robot.m_ballMan.m_bSpark.set(0);
-        Robot.m_ballMan.m_relay.set(true);
-        Robot.m_ballMan.relay_blinks = 0;
-        Robot.m_ballMan.relay_state = (true);
+        // Robot.m_ballMan.m_relay.set(true);
+        // Robot.m_ballMan.relay_blinks = 0;
+        // Robot.m_ballMan.relay_state = (true);
       }
     
     }
@@ -73,7 +74,7 @@ public class ManipulateBall extends Command {
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return Robot.m_ballMan.m_ballLimitSwitch.get();
+    return false;
   }
   
 

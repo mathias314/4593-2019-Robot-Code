@@ -11,8 +11,8 @@ import com.revrobotics.ControlType;
 
 import edu.wpi.first.wpilibj.RobotState;
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.command.Scheduler;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+// import edu.wpi.first.wpilibj.command.Scheduler;
+// import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
 
 /**
@@ -35,11 +35,11 @@ public class SPARKDriveTeleop extends Command {
   protected void execute() {
     double rawFive = Robot.m_oi.xboxController.getRawAxis(5);
     double rawOne = Robot.m_oi.xboxController.getRawAxis(1);
-    double speed = RobotState.isAutonomous() ? 0.7 * -3750 : -3750;
+    double speed = RobotState.isAutonomous() ? 0.7 * -3750 : -Robot.m_subsystem.speed;
     double one = Math.abs(1 * rawOne) > 0.15 ? speed * (1/0.95) * (Math.abs(rawOne) - 0.05) * Math.signum(rawOne): 0; // left forwards allegedly
     double five = Math.abs(1 * rawFive) > 0.15 ? speed * (1/0.95) * (Math.abs(rawFive) - 0.05) * Math.signum(rawFive): 0; // right forwards
-    SmartDashboard.putNumber("left", Robot.m_subsystem.m_encoder_left.getVelocity());
-    SmartDashboard.putNumber("right", Robot.m_subsystem.m_encoder_right.getVelocity());
+    // SmartDashboard.putNumber("left", Robot.m_subsystem.m_encoder_left.getVelocity());
+    // SmartDashboard.putNumber("right", Robot.m_subsystem.m_encoder_right.getVelocity());
     if(one != 0){
       Robot.m_subsystem.m_econtroller_left.setReference(one,ControlType.kVelocity);
     } else {
@@ -49,6 +49,11 @@ public class SPARKDriveTeleop extends Command {
       Robot.m_subsystem.m_econtroller_right.setReference(five, ControlType.kVelocity);
     } else {
       Robot.m_subsystem.m_FRM.set(0);
+    }
+    if(Robot.m_oi.xboxController.getStartButton()){
+      Robot.m_subsystem.speed = 0.7 * 3750;
+    } else if (Robot.m_oi.xboxController.getBackButton()){
+      Robot.m_subsystem.speed = 3750;
     }
   }
   

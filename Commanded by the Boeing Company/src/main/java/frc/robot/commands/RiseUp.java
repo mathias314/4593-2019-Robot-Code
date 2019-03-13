@@ -8,7 +8,7 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.command.Scheduler;
+// import edu.wpi.first.wpilibj.command.Scheduler;
 import frc.robot.Robot;
 
 public class RiseUp extends Command {
