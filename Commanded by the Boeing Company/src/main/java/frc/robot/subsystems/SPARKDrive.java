@@ -31,7 +31,7 @@ public class SPARKDrive extends Subsystem {
   public CANPIDController m_econtroller_right = new CANPIDController(m_FRM);
   // public CANEncoder m_encoder_right = new CANEncoder(m_FRM);
 
-  public double speed = 3750;
+  public double speed = 0.35 * 4000;
 
   // Put methods for controlling this subsystem
   // here. Call these from Commands.

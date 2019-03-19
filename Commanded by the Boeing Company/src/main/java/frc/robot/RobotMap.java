@@ -42,6 +42,7 @@ public class RobotMap {
     // public static final int LED_PCM = 5;  f for the led in the pcm :(
     public static final int ballLimitSwitch = 0;
  
+
     public static final int gripperSolenoidSideA = 6;
     public static final int gripperSolenoidSideB = 7;
 
@@ -50,6 +51,9 @@ public class RobotMap {
     public static final int deployerSolenoidSideA = 2;
     public static final int deployerSolenoidSideB = 3;
 
+    public static final int haw = 4;
+    public static final int yee = 5;
+    
     // public static final int relay = 2;
   }
 

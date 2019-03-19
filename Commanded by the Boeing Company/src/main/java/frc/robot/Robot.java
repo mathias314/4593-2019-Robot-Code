@@ -34,6 +34,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.commands.SPARKDriveTeleop;
 // import frc.robot.subsystems.Arduino;
 import frc.robot.subsystems.BallManipulator;
+import frc.robot.subsystems.DearGodPlsWork;
 import frc.robot.subsystems.ForkKnife;
 import frc.robot.subsystems.Gripper;
 import frc.robot.subsystems.Nomatics;
@@ -51,6 +52,7 @@ public class Robot extends TimedRobot {
   public static ForkKnife m_fk = new ForkKnife();
   public static Nomatics m_nomat = new Nomatics();
   public static BallManipulator m_ballMan = new BallManipulator();
+  public static DearGodPlsWork m_ohgod = new DearGodPlsWork();
   // public static Arduino m_Arduino = new Arduino();
   public static Gripper m_gripper = new Gripper();
   public static OI m_oi;
