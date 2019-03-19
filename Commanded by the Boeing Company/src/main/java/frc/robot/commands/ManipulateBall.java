@@ -42,6 +42,7 @@ public class ManipulateBall extends Command {
       Robot.m_ballMan.m_bTalon.set(0);
       Robot.m_ballMan.m_bSpark.set(0);
       Robot.m_ballMan.lastStop = System.currentTimeMillis();
+      // System.out.println("The ball is currently being touched");
       /**
       if(Robot.m_ballMan.relay_blinks < 8 && System.currentTimeMillis() - Robot.m_ballMan.lastBlink > 500) {
         Robot.m_ballMan.relay_state = !Robot.m_ballMan.relay_state;
@@ -61,6 +62,7 @@ public class ManipulateBall extends Command {
       else {
         Robot.m_ballMan.m_bTalon.set(0);
         Robot.m_ballMan.m_bSpark.set(0);
+        // System.out.println("The ball is not being touched");
         // Robot.m_ballMan.m_relay.set(true);
         // Robot.m_ballMan.relay_blinks = 0;
         // Robot.m_ballMan.relay_state = (true);
