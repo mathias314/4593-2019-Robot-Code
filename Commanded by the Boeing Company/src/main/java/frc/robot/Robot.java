@@ -30,6 +30,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import frc.robot.commands.SAVEUSDEARGOD;
 // import frc.robot.commands.MakeGrip;
 import frc.robot.commands.SPARKDriveTeleop;
 // import frc.robot.subsystems.Arduino;
@@ -113,9 +114,7 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void autonomousInit() {
-    m_autonomousCommand = m_chooser.getSelected();
-    
-    m_gripper.GripperSolenoid.set(Value.kReverse);
+    m_autonomousCommand = new SAVEUSDEARGOD();
 
     /*
      * String autoSelected = SmartDashboard.getString("Auto Selector",
