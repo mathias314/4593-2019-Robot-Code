@@ -68,8 +68,8 @@ public class Robot extends TimedRobot {
   @Override
   public void robotInit() {
     m_oi = new OI();
-    m_chooser.setDefaultOption("Default Auto", new SPARKDriveTeleop());
-    // chooser.addOption("My Auto", new MyAutoCommand());
+    m_chooser.setDefaultOption("Teleop", new SPARKDriveTeleop());
+    m_chooser.addOption("Level 2", new SAVEUSDEARGOD());
     SmartDashboard.putData("Auto mode", m_chooser);
     CameraServer.getInstance().startAutomaticCapture();
     m_subsystem.init();
@@ -114,7 +114,7 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void autonomousInit() {
-    m_autonomousCommand = new SAVEUSDEARGOD();
+    m_autonomousCommand = m_chooser.getSelected();
 
     /*
      * String autoSelected = SmartDashboard.getString("Auto Selector",
