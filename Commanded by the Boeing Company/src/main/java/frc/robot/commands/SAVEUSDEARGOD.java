@@ -25,7 +25,6 @@ public class SAVEUSDEARGOD extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    Robot.m_gripper.GripperSolenoid.set(Value.kReverse);
     Robot.m_subsystem.autoTimer = System.currentTimeMillis();
     Robot.m_ohgod.ClimberFront.set(true);
   }
@@ -35,7 +34,7 @@ public class SAVEUSDEARGOD extends Command {
   protected void execute() {
     Robot.m_subsystem.m_FLM.set(0.3);
     Robot.m_subsystem.m_FRM.set(0.3);
-    if(System.currentTimeMillis() - Robot.m_subsystem.autoTimer > 500){
+    if(System.currentTimeMillis() - Robot.m_subsystem.autoTimer > 250){
       Robot.m_ohgod.ClimberFront.set(false);
     }
   }

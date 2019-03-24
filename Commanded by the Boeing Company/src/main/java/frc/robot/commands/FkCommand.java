@@ -46,8 +46,8 @@ public class FkCommand extends Command {
     } else if (rawRight > 0.15 && Robot.m_fk.m_raiseTo.get()){
       Robot.m_fk.fk.set(rawRight); // possibly .75 on the actual comp bot, due to different gearings
       Robot.m_fk.lastStop = System.currentTimeMillis();
-    } else if (System.currentTimeMillis() - Robot.m_fk.lastStop < 7521) {
-      Robot.m_fk.fk.set(.15);
+    // else if (System.currentTimeMillis() - Robot.m_fk.lastStop < 7521) {
+      //Robot.m_fk.fk.set(.15);
     }else {
       Robot.m_fk.fk.set(0);
     }

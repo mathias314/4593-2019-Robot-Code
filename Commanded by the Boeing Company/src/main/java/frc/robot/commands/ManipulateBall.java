@@ -55,7 +55,7 @@ public class ManipulateBall extends Command {
       }
       */
     } else if (Robot.m_oi.auxController.getXButton()  && System.currentTimeMillis() - Robot.m_ballMan.lastStop > 1000) {
-      Robot.m_ballMan.m_bTalon.set(-1);
+      Robot.m_ballMan.m_bTalon.set(1);
       Robot.m_ballMan.m_bSpark.set(.6);
         // Robot.m_ballMan.m_lit.set(true);
       }
@@ -70,8 +70,6 @@ public class ManipulateBall extends Command {
     
     }
   
-  
-    
 
   // Make this return true when this Command no longer needs to run execute()
   @Override

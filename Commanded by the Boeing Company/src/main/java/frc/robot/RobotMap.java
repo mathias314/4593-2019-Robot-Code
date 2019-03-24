@@ -31,9 +31,9 @@ public class RobotMap {
   }
 
   public static class ForkKnife {
-    public static final int sparkOne = 1;
+    public static final int sparkOne = 0;
     public static final int sparkTwo = 2;
-    public static final int sparkBALL = 0;
+    public static final int sparkBALL = 1;
     public static final int talonBallRight = 3;
     public static final int talonBallLeft = 4;
 

@@ -61,7 +61,7 @@ public class OI {
   public OI(){
     // Back.whenPressed(new SPARKDriveTeleop());
     // Start.whenPressed(new ArduinoMove());
-    RaiseForklift.whenPressed(new RiseUp());
-    OhGodStop.whenPressed(new FkCommand());
+    // RaiseForklift.whenPressed(new RiseUp());
+    // OhGodStop.whenPressed(new FkCommand());
   }
 }

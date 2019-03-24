@@ -25,6 +25,8 @@ public class DearGodPlsWork extends Subsystem {
   public Solenoid ClimberBack = new Solenoid(RobotMap.ForkKnife.yee);
   public boolean cb_state = false;
 
+  public long lastChange = System.currentTimeMillis();
+
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
