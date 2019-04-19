@@ -27,11 +27,11 @@ public class HawYee extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    if(Robot.m_oi.auxController.getStartButton() && System.currentTimeMillis() - Robot.m_ohgod.lastChange > 500 && DriverStation.getInstance().getMatchTime() < 30){
+    if(Robot.m_oi.auxController.getAButton() && System.currentTimeMillis() - Robot.m_ohgod.lastChange > 500){
       Robot.m_ohgod.ClimberFront.set(!Robot.m_ohgod.cf_state);
       Robot.m_ohgod.cf_state = !Robot.m_ohgod.cf_state;
       Robot.m_ohgod.lastChange = System.currentTimeMillis();
-    } else if (Robot.m_oi.auxController.getBackButton() && System.currentTimeMillis() - Robot.m_ohgod.lastChange > 500 && DriverStation.getInstance().getMatchTime() < 30){
+    } else if (Robot.m_oi.auxController.getBButton() && System.currentTimeMillis() - Robot.m_ohgod.lastChange > 500){
       Robot.m_ohgod.ClimberBack.set(!Robot.m_ohgod.cb_state);
       Robot.m_ohgod.cb_state = !Robot.m_ohgod.cb_state;
       Robot.m_ohgod.lastChange = System.currentTimeMillis();

@@ -69,7 +69,7 @@ public class Robot extends TimedRobot {
   public void robotInit() {
     m_oi = new OI();
     m_chooser.setDefaultOption("Teleop", new SPARKDriveTeleop());
-    m_chooser.addOption("Level 2", new SAVEUSDEARGOD());
+    m_chooser.addOption("Flavor Explosion 1", new SAVEUSDEARGOD());
     SmartDashboard.putData("Auto mode", m_chooser);
     CameraServer.getInstance().startAutomaticCapture();
     m_subsystem.init();

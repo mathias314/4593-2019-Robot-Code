@@ -14,9 +14,11 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import frc.robot.RobotMap.Controls;
 // import frc.robot.commands.ArduinoMove;
 import frc.robot.commands.FkCommand;
+import frc.robot.commands.GODDEARUSSAVE;
 // import frc.robot.commands.SPARKDriveTeleop;
 // import frc.robot.commands.PistonLift;
 import frc.robot.commands.RiseUp;
+import frc.robot.commands.SPARKDriveTeleop;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -61,7 +63,7 @@ public class OI {
   public OI(){
     // Back.whenPressed(new SPARKDriveTeleop());
     // Start.whenPressed(new ArduinoMove());
-    // RaiseForklift.whenPressed(new RiseUp());
-    // OhGodStop.whenPressed(new FkCommand());
+    RaiseForklift.whenPressed(new GODDEARUSSAVE());
+    OhGodStop.whenPressed(new SPARKDriveTeleop());
   }
 }

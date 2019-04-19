@@ -7,14 +7,11 @@
 
 package frc.robot.commands;
 
-import edu.wpi.first.wpilibj.DriverStation;
-import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.command.Scheduler;
 import frc.robot.Robot;
 
-public class SAVEUSDEARGOD extends Command {
-  public SAVEUSDEARGOD() {
+public class GODDEARUSSAVE extends Command {
+  public GODDEARUSSAVE() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
     requires(Robot.m_ohgod);
@@ -25,15 +22,19 @@ public class SAVEUSDEARGOD extends Command {
   @Override
   protected void initialize() {
     Robot.m_subsystem.autoTimer = System.currentTimeMillis();
-    Robot.m_ohgod.ClimberFront.set(true);
+    Robot.m_ohgod.ClimberBack.set(true);
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.m_subsystem.m_FLM.set(0.3);
-    Robot.m_subsystem.m_FRM.set(0.3);
-    if(System.currentTimeMillis() - Robot.m_subsystem.autoTimer > 250){
+    // Robot.m_subsystem.m_FLM.set(-0.3);
+    // Robot.m_subsystem.m_FRM.set(-0.3);
+    if(System.currentTimeMillis() - Robot.m_subsystem.autoTimer > 1000){
+      Robot.m_ohgod.ClimberFront.set(true);
+      Robot.m_ohgod.ClimberBack.set(false);
+    }
+    if(System.currentTimeMillis() - Robot.m_subsystem.autoTimer > 2000){
       Robot.m_ohgod.ClimberFront.set(false);
     }
   }
@@ -47,8 +48,6 @@ public class SAVEUSDEARGOD extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Robot.m_ohgod.ClimberFront.set(false);
-    Scheduler.getInstance().run();
   }
 
   // Called when another command which requires one or more of the same
