@@ -7,8 +7,6 @@
 
 package frc.robot.commands;
 
-import com.ctre.phoenix.motorcontrol.ControlMode;
-
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
@@ -32,8 +30,8 @@ public class GODDEARUSSAVE extends Command {
   @Override
   protected void execute() {
     if(System.currentTimeMillis() - Robot.m_subsystem.autoTimer > 500){
-    Robot.m_subsystem.m_FLM.set(ControlMode.PercentOutput, -0.3);
-    Robot.m_subsystem.m_FRM.set(ControlMode.PercentOutput, 0.3);
+    Robot.m_subsystem.m_FLM.set(-0.3);
+    Robot.m_subsystem.m_FRM.set(-0.3);
     }
     if(System.currentTimeMillis() - Robot.m_subsystem.autoTimer > 2250){
       Robot.m_ohgod.ClimberFront.set(true);
