@@ -7,6 +7,9 @@
 
 package frc.robot.commands;
 
+import com.ctre.phoenix.motorcontrol.ControlMode;
+
+import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
@@ -28,13 +31,15 @@ public class GODDEARUSSAVE extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    // Robot.m_subsystem.m_FLM.set(-0.3);
-    // Robot.m_subsystem.m_FRM.set(-0.3);
-    if(System.currentTimeMillis() - Robot.m_subsystem.autoTimer > 1000){
+    if(System.currentTimeMillis() - Robot.m_subsystem.autoTimer > 500){
+    Robot.m_subsystem.m_FLM.set(ControlMode.PercentOutput, -0.3);
+    Robot.m_subsystem.m_FRM.set(ControlMode.PercentOutput, 0.3);
+    }
+    if(System.currentTimeMillis() - Robot.m_subsystem.autoTimer > 2250){
       Robot.m_ohgod.ClimberFront.set(true);
       Robot.m_ohgod.ClimberBack.set(false);
     }
-    if(System.currentTimeMillis() - Robot.m_subsystem.autoTimer > 2000){
+    if(System.currentTimeMillis() - Robot.m_subsystem.autoTimer > 4500){
       Robot.m_ohgod.ClimberFront.set(false);
     }
   }
@@ -42,7 +47,7 @@ public class GODDEARUSSAVE extends Command {
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return System.currentTimeMillis() - Robot.m_subsystem.autoTimer > 3000;
+    return System.currentTimeMillis() - Robot.m_subsystem.autoTimer > 5000;
   }
 
   // Called once after isFinished returns true
