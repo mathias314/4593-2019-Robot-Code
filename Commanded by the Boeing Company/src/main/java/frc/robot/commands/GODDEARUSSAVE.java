@@ -29,16 +29,10 @@ public class GODDEARUSSAVE extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-<<<<<<< HEAD
-    if(System.currentTimeMillis() - Robot.m_subsystem.autoTimer > 500){
-    Robot.m_subsystem.m_FLM.set(-0.3);
-    Robot.m_subsystem.m_FRM.set(-0.3);
-=======
     long diff = System.currentTimeMillis() - Robot.m_subsystem.autoTimer;
     if(diff > 500){
-    Robot.m_subsystem.m_FLM.set(ControlMode.PercentOutput, -0.3);
-    Robot.m_subsystem.m_FRM.set(ControlMode.PercentOutput, 0.3);
->>>>>>> dd19502... final improvement before worlds
+      Robot.m_subsystem.m_FLM.set(0.3);
+      Robot.m_subsystem.m_FRM.set(0.3);
     }
     if(diff > 2250 && diff < 3000){
       Robot.m_ohgod.ClimberFront.set(true);
