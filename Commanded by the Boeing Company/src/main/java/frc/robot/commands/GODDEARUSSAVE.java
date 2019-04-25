@@ -30,15 +30,21 @@ public class GODDEARUSSAVE extends Command {
   @Override
   protected void execute() {
     long diff = System.currentTimeMillis() - Robot.m_subsystem.autoTimer;
-    if(diff > 500){
-      Robot.m_subsystem.m_FLM.set(0.3);
-      Robot.m_subsystem.m_FRM.set(0.3);
+    if(diff > 500 && diff < 1726){
+      Robot.m_subsystem.m_FLM.set(-0.3);
+      Robot.m_subsystem.m_FRM.set(-0.3);
+    } else if (diff > 3000) {
+      Robot.m_subsystem.m_FLM.set(-0.3);
+      Robot.m_subsystem.m_FRM.set(-0.3);
     }
-    if(diff > 2250 && diff < 3000){
+    if(diff > 1726 && diff < 3000){
       Robot.m_ohgod.ClimberFront.set(true);
       Robot.m_ohgod.ClimberBack.set(false);
+      Robot.m_subsystem.m_FLM.set(0);
+      Robot.m_subsystem.m_FRM.set(0);
     }
-    if(diff > 4500){
+    
+    if(diff > 3700){
       Robot.m_ohgod.ClimberFront.set(false);
     }
   }
@@ -46,7 +52,7 @@ public class GODDEARUSSAVE extends Command {
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return System.currentTimeMillis() - Robot.m_subsystem.autoTimer > 5000;
+    return System.currentTimeMillis() - Robot.m_subsystem.autoTimer > 4000;
   }
 
   // Called once after isFinished returns true

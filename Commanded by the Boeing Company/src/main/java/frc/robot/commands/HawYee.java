@@ -27,6 +27,7 @@ public class HawYee extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
+    
     if(Robot.m_oi.auxController.getAButton() && System.currentTimeMillis() - Robot.m_ohgod.lastChange > 500){
       Robot.m_ohgod.ClimberFront.set(!Robot.m_ohgod.cf_state);
       Robot.m_ohgod.cf_state = !Robot.m_ohgod.cf_state;

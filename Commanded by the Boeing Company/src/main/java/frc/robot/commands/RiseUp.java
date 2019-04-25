@@ -26,7 +26,7 @@ public class RiseUp extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    System.out.println("Wanna buy this crowbar bro??");
+    // System.out.println("Wanna buy this crowbar bro??");
     // Robot.m_fk.fk.set(-6);
   }
 
